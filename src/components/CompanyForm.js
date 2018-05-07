@@ -2,6 +2,8 @@ import React, {PureComponent} from 'react'
 import { withStyles } from 'material-ui/styles';
 import Input, { InputLabel } from 'material-ui/Input';
 import { FormControl, FormHelperText } from 'material-ui/Form';
+import Button from 'material-ui/Button';
+import AddIcon from '@material-ui/icons/Add';
 
 const styles = theme => ({
 	container: {
@@ -10,6 +12,10 @@ const styles = theme => ({
 	},
 	formControl: {
 		margin: theme.spacing.unit,
+	},
+	button: {
+		color: "#711F9B",
+		backgroundColor: "white",
 	},
 });
 
@@ -59,6 +65,11 @@ class CompanyForm extends React.Component {
 					</FormControl>
 
 					<FormControl className={classes.formControl}>
+						<InputLabel htmlFor="company-link"> Link</InputLabel>
+						<Input id="company-link" name="link" value={this.state.link || ''} onChange={this.handleChange} />
+					</FormControl>
+
+					<FormControl className={classes.formControl}>
 						<InputLabel htmlFor="company-score">Applied? y/n</InputLabel>
 						<Input id="company-applied" name="applied" value={this.state.applied || initialValues.applied || ''} onChange={this.handleChange} />
 					</FormControl>
@@ -67,12 +78,12 @@ class CompanyForm extends React.Component {
 						<InputLabel htmlFor="company-openpos">Open Positions? y/n</InputLabel>
 						<Input id="company-openpos" name="openpos" value={this.state.openpos || initialValues.openpos || ''} onChange={this.handleChange} />
 					</FormControl>
-
-					<FormControl className={classes.formControl}>
-						<InputLabel htmlFor="company-link"> Link</InputLabel>
-						<Input id="company-link" name="link" value={this.state.link ||  ''} onChange={this.handleChange} />
-					</FormControl>
-					<button type="submit">Save</button>
+					
+					<div>
+						<Button variant="raised" size="medium" type="submit" className={classes.button}>
+							Save
+						</Button>
+					</div>
 				</form>
 			</div>
 		);
