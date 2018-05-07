@@ -39,6 +39,7 @@ const styles = theme => ({
   },
   heading: {
     color: "#711F9B",
+    fontSize: 16,
   },
 });
 
@@ -70,7 +71,7 @@ class CompanyList extends PureComponent {
       <Paper className={classes.root}>
         <ExpansionPanel>
           <ExpansionPanelSummary expandIcon={<ExpandMoreIcon />}>
-            <Typography className={classes.heading}>Add new Company...</Typography>
+            <Typography className={classes.heading}>Add new...</Typography>
           </ExpansionPanelSummary>
           <ExpansionPanelDetails>
             <Typography>

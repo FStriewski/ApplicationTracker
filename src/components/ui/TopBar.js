@@ -22,7 +22,7 @@ const styles = {
 bar: {
   borderColor: "white",
   color: "#721F9C",
-  borderSize: "0.1px",
+  borderWidth: "1px",
   borderStyle: "solid",
   backgroundColor: "#F2F2F0",
 },

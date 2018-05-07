@@ -33,7 +33,7 @@ class CompanyForm extends React.Component {
 
 	render() {
 		const { classes } = this.props
-		const initialValues = this.props.initialValues || {}
+		const initialValues = this.props.initialValues || ''
 
 		return (
 			<div className={classes.container}>
@@ -45,7 +45,7 @@ class CompanyForm extends React.Component {
 
 					<FormControl className={classes.formControl}>
 						<InputLabel htmlFor="company-market">Market</InputLabel>
-						<Input id="company-market" name="market" value={this.state.market || initialValues.market || ''} onChange={this.handleChange} />
+						<Input id="company-market" name="market" value={this.state.market || initialValues.market ||  ''} onChange={this.handleChange} />
 					</FormControl>
 
 					<FormControl className={classes.formControl}>

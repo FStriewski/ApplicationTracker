@@ -11,6 +11,7 @@ import { withStyles } from 'material-ui/styles';
 import Card, { CardActions, CardContent, CardMedia } from 'material-ui/Card';
 import Button from 'material-ui/Button';
 import Typography from 'material-ui/Typography';
+import Domain from '@material-ui/icons/Domain'
 
 const styles = {
   card: {
@@ -20,6 +21,22 @@ const styles = {
   media: {
     height: 0,
     paddingTop: '36.25%', // 16:9
+  },
+  button: {
+    color: "#711F9B",
+    fontSize: 14,
+    textAlign: "center",
+  },
+  headline: {
+    textAlign: "center",
+  },
+  icon: {
+    color: "#B16F9B",
+    paddingTop: "5%",
+    marginLeft: "35%",
+    marginRight: "35%",
+    height: "100px",
+    width: "30%",
   },
 };
 
@@ -60,15 +77,12 @@ const styles = {
       {
         !this.state.edit && company &&
         <Card className={classes.card}>
-          <CardMedia
-            className={classes.media}
-            // image = {
-            //   Company.imageurl
-            // }
-            title="paceholder"
-          />
+          <CardMedia>
+            <Domain className={classes.icon}/>
+            </CardMedia>
+
           <CardContent>
-            <Typography gutterBottom variant="headline" component="h2">
+            <Typography gutterBottom variant="headline" component="h2" className={classes.headline}>
                 {company.name}
             </Typography>
             <Typography component="p">
@@ -77,15 +91,11 @@ const styles = {
                 <p>Interesting? {company.score} /10 </p>
             </Typography>
           </CardContent>
-          <CardActions>
-            <Button size="small" color="primary">
-              Click
-            </Button>
-          </CardActions>
+            <div className={classes.button}>
+              <Button className={classes.button} onClick={this.toggleEdit}> Edit </Button>
+          </div>
         </Card>
       }
-  
-      <Button onClick={this.toggleEdit}> Edit </Button>
     </div>
   );
 }
