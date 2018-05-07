@@ -17,12 +17,13 @@ import Switch from 'material-ui/Switch';
 import { FormControlLabel, FormGroup } from 'material-ui/Form';
 import Menu, { MenuItem } from 'material-ui/Menu';
 import Dehaze from '@material-ui/icons/Dehaze'
+import FilterCenterFocus from '@material-ui/icons/FilterCenterFocus'
 
 const styles = {
 bar: {
-  borderColor: "white",
+  borderColor: "#721F9C",
   color: "#721F9C",
-  borderWidth: "1px",
+  borderWidth: "0.5px",
   borderStyle: "solid",
   backgroundColor: "#F2F2F0",
 },
@@ -38,6 +39,9 @@ bar: {
   },
   title:{
     color: "#721F9C",
+  },
+  icon:{
+    height: "15%",
   },
 };
 
@@ -70,6 +74,7 @@ class TopBar extends React.Component {
           <Toolbar>
             <Typography variant="title" color="inherit" className={classes.flex}>
               {/* <Link to={'/companys'} component={CompanyList} className="companys"> List</Link> */}
+              <FilterCenterFocus className={classes.icon}/>
               <span className={classes.title}> Application Tracker </span>
             </Typography>
           

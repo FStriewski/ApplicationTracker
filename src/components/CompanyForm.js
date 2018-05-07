@@ -71,13 +71,7 @@ class CompanyForm extends React.Component {
 							<MenuItem value={"NL"}>NL</MenuItem>
 							<MenuItem value={"INT"}>INT</MenuItem>
 						</Select>
-
 						</FormControl>
-
-					{/* <FormControl className={classes.formControl}>
-						<InputLabel htmlFor="company-score">Score</InputLabel>
-						<Input id="company-score" name="score" value={this.state.score || initialValues.score || ''} onChange={this.handleChange} />
-					</FormControl> */}
 
 						<FormControl className={classes.formControlPicker}>
 							<InputLabel htmlFor="score">Score</InputLabel>
