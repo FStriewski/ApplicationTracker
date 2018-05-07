@@ -59,7 +59,7 @@ class TopBar extends React.Component {
         <AppBar position="static">
           <Toolbar>
             <Typography variant="title" color="inherit" className={classes.flex}>
-              <Link to={'/companys'} component={CompanyList} className="companys">WebShop 3000</Link>
+              <Link to={'/companys'} component={CompanyList} className="companys"> List</Link>
             </Typography>
           
               <div>  

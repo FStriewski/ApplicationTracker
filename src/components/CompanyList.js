@@ -27,6 +27,7 @@ const styles = theme => ({
   },
   table: {
     minWidth: 700,
+    // textAlign: "center", 
   },
 });
 
@@ -73,11 +74,12 @@ class CompanyList extends PureComponent {
           <TableHead>
             <TableRow>
 
-              <TableCell numeric>#</TableCell>
-              <TableCell numeric>Name</TableCell>
-              <TableCell numeric>Score</TableCell>
-              <TableCell numeric>Applied</TableCell>
-              <TableCell numeric>Link</TableCell>
+              <TableCell>#</TableCell>
+              <TableCell>Name</TableCell>
+              <TableCell>Score</TableCell>
+              <TableCell>Applied</TableCell>
+              <TableCell>Link</TableCell>
+              <TableCell>Remove</TableCell>
 
             </TableRow>
           </TableHead>
@@ -87,12 +89,12 @@ class CompanyList extends PureComponent {
             .map(company => {
               return (
                 <TableRow key={company.id}>
-                  <TableCell numeric>{company.id}</TableCell>
+                  <TableCell >{company.id}</TableCell>
                   <TableCell><Link to={`/Companys/${company.id}`}>{company.name}</Link></TableCell>
-                  <TableCell numeric>{company.score}</TableCell>
-                  <TableCell numeric>{company.applied}</TableCell>
-                  <TableCell numeric>{company.joblink}</TableCell>
-                  <TableCell numeric> <button onClick={() => this.removeCompany(company.id)}> X </button></TableCell>
+                  <TableCell >{company.score}</TableCell>
+                  <TableCell >{company.applied}</TableCell>
+                  <TableCell >{company.joblink}</TableCell>
+                  <TableCell > <button onClick={() => this.removeCompany(company.id)}> X </button></TableCell>
                 </TableRow>
               );
             })}

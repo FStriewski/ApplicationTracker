@@ -72,9 +72,9 @@ const styles = {
                 {company.name}
             </Typography>
             <Typography component="p">
-            <p>A book by: <b>{company.market}</b></p>
-                <p>{company.focus}</p>
-                <p>Rating {company.score} /10 </p>
+            <p>Deals with: <b>{company.market}</b></p>
+                <p>Focusses on: {company.focus}</p>
+                <p>Interesting? {company.score} /10 </p>
             </Typography>
           </CardContent>
           <CardActions>
@@ -104,7 +104,7 @@ const styles = {
 
 const mapStateToProps = function (state, props) {
   return {
-    Company: state.company
+    company: state.company
   }
 }
 
