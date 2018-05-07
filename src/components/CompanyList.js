@@ -88,7 +88,7 @@ class CompanyList extends PureComponent {
               <TableCell className={classes.header}>Name</TableCell>
               <TableCell className={classes.header}>Language</TableCell>
               <TableCell className={classes.header}>Score</TableCell>
-              <TableCell className={classes.header}>Applied</TableCell>
+              <TableCell className={classes.header}>Open Pos.</TableCell>
               <TableCell className={classes.header}>Remove</TableCell>
 
             </TableRow>

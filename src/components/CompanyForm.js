@@ -98,7 +98,7 @@ class CompanyForm extends React.Component {
 						</FormControl>
 
 					<FormControl className={classes.formControl}>
-						<InputLabel htmlFor="company-applied">Applied? y/n</InputLabel>
+						<InputLabel htmlFor="company-applied">Open Positions? y/n</InputLabel>
 						<Input id="company-applied" name="applied" value={this.state.applied || initialValues.applied || ''} onChange={this.handleChange} />
 					</FormControl>
 				</div>

@@ -25,7 +25,7 @@ bar: {
   color: "#721F9C",
   borderWidth: "0.5px",
   borderStyle: "solid",
-  backgroundColor: "#F2F2F0",
+  backgroundColor: "#F2F6F7",
 },
   root: {
     flexGrow: 1,
