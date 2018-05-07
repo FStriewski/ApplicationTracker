@@ -89,6 +89,7 @@ const styles = {
             <p>Deals with: <b>{company.market}</b></p>
                 <p>Focusses on: {company.focus}</p>
                 <p>Interesting? {company.score} /10 </p>
+              <a href={company.link}>Website</a>
             </Typography>
           </CardContent>
             <div className={classes.button}>
