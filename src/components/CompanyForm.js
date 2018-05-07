@@ -69,8 +69,8 @@ class CompanyForm extends React.Component {
 					</FormControl>
 
 					<FormControl className={classes.formControl}>
-						<InputLabel htmlFor="company-link">Link</InputLabel>
-						<Input id="company-link" name="link" value={this.state.link || initialValues.link || ''} onChange={this.handleChange} />
+						<InputLabel htmlFor="company-link"> Link</InputLabel>
+						<Input id="company-link" name="link" value={this.state.link ||  ''} onChange={this.handleChange} />
 					</FormControl>
 					<button type="submit">Save</button>
 				</form>
