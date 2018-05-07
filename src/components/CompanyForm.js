@@ -26,7 +26,7 @@ class CompanyForm extends React.Component {
 
 		this.setState(
 			(name === "score")
-				? { price: Number(value) }
+				? { score: Number(value) }
 				: { [name]: value }
 		)
 	}
@@ -44,7 +44,7 @@ class CompanyForm extends React.Component {
 					</FormControl>
 
 					<FormControl className={classes.formControl}>
-						<InputLabel htmlFor="company-market">Market:</InputLabel>
+						<InputLabel htmlFor="company-market">Market</InputLabel>
 						<Input id="company-market" name="cmarket" value={this.state.cmarket || initialValues.cmarket || ''} onChange={this.handleChange} />
 					</FormControl>
 
@@ -59,7 +59,7 @@ class CompanyForm extends React.Component {
 					</FormControl>
 
 					<FormControl className={classes.formControl}>
-						<InputLabel htmlFor="company-link">Description</InputLabel>
+						<InputLabel htmlFor="company-link">Link</InputLabel>
 						<Input id="company-link" name="link" value={this.state.link || initialValues.link || ''} onChange={this.handleChange} />
 					</FormControl>
 					<button type="submit">Save</button>

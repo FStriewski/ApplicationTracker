@@ -47,56 +47,46 @@ const styles = {
 
 
   render() {
-    const { Company,classes } = this.props
-    if (!Company) return null
-
-    let image = null;
-    if (Company.image) {
-      image = <img alt="Companyimage" />
-    }
-
+    const { company,classes } = this.props
+    if (!company) return null
 
   return (
     <div>      {/* In edit mode display: */}
       <Link to="/Companys">Back </Link>
       {
         this.state.edit &&
-        <CompanyForm initialValues={Company} onSubmit={this.updateCompany} />
+        <CompanyForm initialValues={company} onSubmit={this.updateCompany} />
       }
       {
-        !this.state.edit && Company &&
+        !this.state.edit && company &&
         <Card className={classes.card}>
           <CardMedia
             className={classes.media}
-            image = {
-              Company.imageurl
-            }
-            title="Contemplative Reptile"
+            // image = {
+            //   Company.imageurl
+            // }
+            title="paceholder"
           />
           <CardContent>
             <Typography gutterBottom variant="headline" component="h2">
-                {Company.title}
+                {company.name}
             </Typography>
             <Typography component="p">
-            <p>A book by: <b>{Company.author}</b></p>
-                <p>{Company.description}</p>
-                <p>Now for just {Company.price}€ </p>
+            <p>A book by: <b>{company.market}</b></p>
+                <p>{company.focus}</p>
+                <p>Rating {company.score} /10 </p>
             </Typography>
           </CardContent>
           <CardActions>
             <Button size="small" color="primary">
-              Buy this Company!
+              Click
             </Button>
           </CardActions>
         </Card>
       }
   
       <Button onClick={this.toggleEdit}> Edit </Button>
-      
     </div>
-
-
-
   );
 }
 
@@ -114,7 +104,7 @@ const styles = {
 
 const mapStateToProps = function (state, props) {
   return {
-    Company: state.Company
+    Company: state.company
   }
 }
 
@@ -122,32 +112,3 @@ export default combine(
   withStyles(styles),
   connect(mapStateToProps, { fetchCompany, updateCompany })
 )(CompanyDetails)
-
-
-
-
-
-
-
-
-// class CompanyDetails extends PureComponent {
-//   static propTypes = {
-//     Company: PropTypes.arrayOf(PropTypes.shape({
-//       id: PropTypes.number.isRequired,
-//       name: PropTypes.string.isRequired,
-//       price: PropTypes.number.isRequired,
-//       description: PropTypes.string.isRequired
-//     })).isRequired
-//   }
-
-
-
-
-// const mapStateToProps = function (state, props) {
-//   return {
-//    Company: state.Company
-//   }
-// }
-
-
-// export default connect(mapStateToProps, { fetchCompany, updateCompany })(CompanyDetails)

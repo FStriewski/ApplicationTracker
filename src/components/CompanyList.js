@@ -53,10 +53,10 @@ class CompanyList extends PureComponent {
 }
 
   render() {
-    const {Companys, classes} = this.props
+    const {companys, classes} = this.props
     return (
       <Paper className={classes.root}>
-        <h1>Companys</h1>
+        <h1>Companies</h1>
         
         <ExpansionPanel>
           <ExpansionPanelSummary expandIcon={<ExpandMoreIcon />}>
@@ -74,24 +74,25 @@ class CompanyList extends PureComponent {
             <TableRow>
 
               <TableCell numeric>#</TableCell>
-              <TableCell numeric>Title</TableCell>
-              <TableCell numeric>Author</TableCell>
-              <TableCell numeric>Price</TableCell>
-              <TableCell numeric>Delete</TableCell>
+              <TableCell numeric>Name</TableCell>
+              <TableCell numeric>Score</TableCell>
+              <TableCell numeric>Applied</TableCell>
+              <TableCell numeric>Link</TableCell>
 
             </TableRow>
           </TableHead>
           <TableBody>
-            {Companys
-            .sort((p1, p2) => (p2.price - p1.price))
-            .map(Company => {
+            {companys
+            // .sort((p1, p2) => (p2.price - p1.price))
+            .map(company => {
               return (
-                <TableRow key={Company.id}>
-                  <TableCell numeric>{Company.id}</TableCell>
-                  <TableCell><Link to={`/Companys/${Company.id}`}>{Company.title}</Link></TableCell>
-                  <TableCell numeric>{Company.author}</TableCell>
-                  <TableCell numeric>{Company.price}.00</TableCell>
-                  <TableCell numeric> <button onClick={() => this.removeCompany(Company.id)}> X </button></TableCell>
+                <TableRow key={company.id}>
+                  <TableCell numeric>{company.id}</TableCell>
+                  <TableCell><Link to={`/Companys/${company.id}`}>{company.name}</Link></TableCell>
+                  <TableCell numeric>{company.score}</TableCell>
+                  <TableCell numeric>{company.applied}</TableCell>
+                  <TableCell numeric>{company.joblink}</TableCell>
+                  <TableCell numeric> <button onClick={() => this.removeCompany(company.id)}> X </button></TableCell>
                 </TableRow>
               );
             })}
@@ -108,7 +109,7 @@ class CompanyList extends PureComponent {
 const mapStateToProps = function (state) {
   return {
     // currentUser: state.currentUser,
-    Companys: state.Companys
+    companys: state.companys
   }
 }
 
