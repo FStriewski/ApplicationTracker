@@ -40,17 +40,17 @@ class CompanyForm extends React.Component {
 				<form onSubmit={this.handleSubmit}>
 					<FormControl className={classes.formControl}>
 						<InputLabel htmlFor="company-title">Name:</InputLabel>
-						<Input id="company-title" name="cname" value={this.state.cname || initialValues.cname || ''} onChange={this.handleChange} />
+						<Input id="company-title" name="name" value={this.state.name || initialValues.name || ''} onChange={this.handleChange} />
 					</FormControl>
 
 					<FormControl className={classes.formControl}>
 						<InputLabel htmlFor="company-market">Market</InputLabel>
-						<Input id="company-market" name="cmarket" value={this.state.cmarket || initialValues.cmarket || ''} onChange={this.handleChange} />
+						<Input id="company-market" name="market" value={this.state.market || initialValues.market || ''} onChange={this.handleChange} />
 					</FormControl>
 
 					<FormControl className={classes.formControl}>
 						<InputLabel htmlFor="company-focus">Focus</InputLabel>
-						<Input id="company-focus" name="cfocus" value={this.state.cfocus || initialValues.cfocus || ''} onChange={this.handleChange} />
+						<Input id="company-focus" name="focus" value={this.state.focus || initialValues.focus || ''} onChange={this.handleChange} />
 					</FormControl>
 
 					<FormControl className={classes.formControl}>
