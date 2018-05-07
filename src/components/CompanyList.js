@@ -29,6 +29,17 @@ const styles = theme => ({
     minWidth: 700,
     // textAlign: "center", 
   },
+  header: {
+    borderColor: "#711F9B",
+    color: "#711F9B",
+    fontSize: 14,
+  },
+  cell: {
+    borderColor: "#711F9B",
+  },
+  heading: {
+    color: "#711F9B",
+  },
 });
 
 
@@ -57,8 +68,6 @@ class CompanyList extends PureComponent {
     const {companys, classes} = this.props
     return (
       <Paper className={classes.root}>
-        <h1>Companies</h1>
-        
         <ExpansionPanel>
           <ExpansionPanelSummary expandIcon={<ExpandMoreIcon />}>
             <Typography className={classes.heading}>Add new Company...</Typography>
@@ -71,30 +80,30 @@ class CompanyList extends PureComponent {
         </ExpansionPanel>
 
         <Table className={classes.table}>
-          <TableHead>
-            <TableRow>
+          <TableHead >
+            <TableRow >
 
-              <TableCell>#</TableCell>
-              <TableCell>Name</TableCell>
-              <TableCell>Score</TableCell>
-              <TableCell>Applied</TableCell>
-              <TableCell>Link</TableCell>
-              <TableCell>Remove</TableCell>
+              <TableCell className={classes.header}>#</TableCell>
+              <TableCell className={classes.header}>Name</TableCell>
+              <TableCell className={classes.header}>Score</TableCell>
+              <TableCell className={classes.header}>Applied</TableCell>
+              <TableCell className={classes.header}>Link</TableCell>
+              <TableCell className={classes.header}>Remove</TableCell>
 
             </TableRow>
           </TableHead>
           <TableBody>
             {companys
-            // .sort((p1, p2) => (p2.price - p1.price))
+             .sort((p1, p2) => (p2.score - p1.score))
             .map(company => {
               return (
                 <TableRow key={company.id}>
-                  <TableCell >{company.id}</TableCell>
-                  <TableCell><Link to={`/Companys/${company.id}`}>{company.name}</Link></TableCell>
-                  <TableCell >{company.score}</TableCell>
-                  <TableCell >{company.applied}</TableCell>
-                  <TableCell >{company.joblink}</TableCell>
-                  <TableCell > <button onClick={() => this.removeCompany(company.id)}> X </button></TableCell>
+                  <TableCell className={classes.cell}>{company.id}</TableCell>
+                  <TableCell className={classes.cell}><Link to={`/Companys/${company.id}`}>{company.name}</Link></TableCell>
+                  <TableCell className={classes.cell}>{company.score}</TableCell>
+                  <TableCell className={classes.cell}>{company.applied}</TableCell>
+                  <TableCell className={classes.cell}>{company.joblink}</TableCell>
+                  <TableCell className={classes.cell}> <button onClick={() => this.removeCompany(company.id)}> X </button></TableCell>
                 </TableRow>
               );
             })}

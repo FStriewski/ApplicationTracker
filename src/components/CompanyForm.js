@@ -59,12 +59,12 @@ class CompanyForm extends React.Component {
 					</FormControl>
 
 					<FormControl className={classes.formControl}>
-						<InputLabel htmlFor="company-score">Applied y/n</InputLabel>
+						<InputLabel htmlFor="company-score">Applied? y/n</InputLabel>
 						<Input id="company-applied" name="applied" value={this.state.applied || initialValues.applied || ''} onChange={this.handleChange} />
 					</FormControl>
 
 					<FormControl className={classes.formControl}>
-						<InputLabel htmlFor="company-openpos">Applied y/n</InputLabel>
+						<InputLabel htmlFor="company-openpos">Open Positions? y/n</InputLabel>
 						<Input id="company-openpos" name="openpos" value={this.state.openpos || initialValues.openpos || ''} onChange={this.handleChange} />
 					</FormControl>
 
