@@ -1,12 +1,12 @@
 
-# Ecommerce App
- A simple app that allows you to display, add, change and remove products. 
+#  Application Tracker
+ A simple app that allows you to display, add, change and remove companies. I use this app to manage open positions and interesting companies because I like databases more then Excel sheets. ;)
 
 ## 1. Functionality:
 
 ### Frontend: 
 * User authentication: Sign up, log in, log out
-* Product management: Display, add, modify and delete products from the database [(CRUD)]
+* Company management: Display, add, modify and delete companies from the database [(CRUD)]
 
 ### Backend / Routes:
 
@@ -21,15 +21,16 @@
 | /users/:id  | DELETE    | Delete single user  |
 
 
-#### Product routes:
+#### Company routes:
+The spelling is wrong on purpose.
 
 |**URI**|**VERB**|**ACTION**|
 |-------------|-----------|---------------------------|
-| /products/     | GET       | Get all products       |
-| /products/:id  | GET       | Get single product     |
-| /products/     | POST      | Add single product     |
-| /products/:id  | PUT       | Edit single product    |
-| /products/:id  | DELETE    | Delete single product  |
+| /companys/     | GET       | Get all companys       |
+| /companys/:id  | GET       | Get single company     |
+| /companys/     | POST      | Add single company     |
+| /companys/:id  | PUT       | Edit single company    |
+| /companys/:id  | DELETE    | Delete single company  |
 
 
 ## 2. Installation & Prerequisites
@@ -57,7 +58,6 @@ I'm running a docker container (port 5432) with a Postgres DB. A local DB should
 
 ### Authors
 **Friedrich Striewski**
-See also https://github.com/agroXchange/frontend and https://github.com/agroXchange/backend for a full grown market place project I have contributed to.
 
 ### License
 Feel free to use as you see fit.
