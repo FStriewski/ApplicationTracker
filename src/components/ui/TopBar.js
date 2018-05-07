@@ -16,9 +16,13 @@ import IconButton from 'material-ui/IconButton';
 import Switch from 'material-ui/Switch';
 import { FormControlLabel, FormGroup } from 'material-ui/Form';
 import Menu, { MenuItem } from 'material-ui/Menu';
-import Dehaze from '@material-ui/icons/Dehaze'
+
 
 const styles = {
+bar: {
+  backgroundColor: "#FDF159",
+},
+
   root: {
     flexGrow: 1,
   },
@@ -56,7 +60,7 @@ class TopBar extends React.Component {
 
     return (
       <div className={classes.root}>
-        <AppBar position="static">
+        <AppBar className={classes.bar} position="static" color="inherit">
           <Toolbar>
             <Typography variant="title" color="inherit" className={classes.flex}>
               <Link to={'/companys'} component={CompanyList} className="companys"> List</Link>
@@ -69,7 +73,7 @@ class TopBar extends React.Component {
                 onClick={this.handleMenu}
                 color="inherit"
               >
-                <Dehaze />
+                
               </IconButton>
                 <Menu
                   id="menu-appbar"
