@@ -13,7 +13,7 @@ const styles = theme => ({
 	},
 });
 
-class ProductForm extends React.Component {
+class CompanyForm extends React.Component {
 	state = {	};
 
 	handleSubmit = (e) => {
@@ -25,7 +25,7 @@ class ProductForm extends React.Component {
 		const { name, value } = event.target
 
 		this.setState(
-			(name === "price")
+			(name === "score")
 				? { price: Number(value) }
 				: { [name]: value }
 		)
@@ -39,28 +39,28 @@ class ProductForm extends React.Component {
 			<div className={classes.container}>
 				<form onSubmit={this.handleSubmit}>
 					<FormControl className={classes.formControl}>
-						<InputLabel htmlFor="product-title">Title</InputLabel>
-						<Input id="product-title" name="title" value={this.state.title || initialValues.title || ''} onChange={this.handleChange} />
+						<InputLabel htmlFor="company-title">Name:</InputLabel>
+						<Input id="company-title" name="cname" value={this.state.cname || initialValues.cname || ''} onChange={this.handleChange} />
 					</FormControl>
 
 					<FormControl className={classes.formControl}>
-						<InputLabel htmlFor="product-author">Author</InputLabel>
-						<Input id="product-author" name="author" value={this.state.author || initialValues.author || ''} onChange={this.handleChange} />
+						<InputLabel htmlFor="company-market">Market:</InputLabel>
+						<Input id="company-market" name="cmarket" value={this.state.cmarket || initialValues.cmarket || ''} onChange={this.handleChange} />
 					</FormControl>
 
 					<FormControl className={classes.formControl}>
-						<InputLabel htmlFor="product-year">Year</InputLabel>
-						<Input id="product-year" name="year" value={this.state.year || initialValues.year || ''} onChange={this.handleChange} />
+						<InputLabel htmlFor="company-focus">Focus</InputLabel>
+						<Input id="company-focus" name="cfocus" value={this.state.cfocus || initialValues.cfocus || ''} onChange={this.handleChange} />
 					</FormControl>
 
 					<FormControl className={classes.formControl}>
-						<InputLabel htmlFor="product-price">Price</InputLabel>
-						<Input id="product-price" name="price" value={this.state.price || initialValues.price || ''} onChange={this.handleChange} />
+						<InputLabel htmlFor="company-score">Score</InputLabel>
+						<Input id="company-score" name="score" value={this.state.score || initialValues.score || ''} onChange={this.handleChange} />
 					</FormControl>
 
 					<FormControl className={classes.formControl}>
-						<InputLabel htmlFor="product-desc">Description</InputLabel>
-						<Input id="product-desc" name="description" value={this.state.description || initialValues.description || ''} onChange={this.handleChange} />
+						<InputLabel htmlFor="company-link">Description</InputLabel>
+						<Input id="company-link" name="link" value={this.state.link || initialValues.link || ''} onChange={this.handleChange} />
 					</FormControl>
 					<button type="submit">Save</button>
 				</form>
@@ -70,7 +70,7 @@ class ProductForm extends React.Component {
 }
 
 
-export default withStyles(styles)(ProductForm);
+export default withStyles(styles)(CompanyForm);
 
 
 

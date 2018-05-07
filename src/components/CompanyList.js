@@ -2,11 +2,11 @@ import React, {PureComponent} from 'react'
 import PropTypes from 'prop-types'
 import LogOutPage from './userHandling/LogOutPage'
 import {connect} from 'react-redux'
-import {fetchAllProducts} from '../actions/fetchProduct'
-import { removeProduct } from '../actions/removeProduct'
-import {createProduct} from '../actions/createProduct'
+import {fetchAllCompanys} from '../actions/fetchCompany'
+import { removeCompany } from '../actions/removeCompany'
+import {createCompany} from '../actions/createCompany'
 import {Link, Redirect } from 'react-router-dom'
-import ProductForm from './ProductForm'
+import CompanyForm from './CompanyForm'
 import { withStyles } from 'material-ui/styles';
 import Table, { TableBody, TableCell, TableHead, TableRow } from 'material-ui/Table';
 import Paper from 'material-ui/Paper';
@@ -31,9 +31,9 @@ const styles = theme => ({
 });
 
 
-class ProductsList extends PureComponent {
+class CompanyList extends PureComponent {
   static propTypes = {
-    products: PropTypes.arrayOf(PropTypes.shape({
+    Companys: PropTypes.arrayOf(PropTypes.shape({
       id: PropTypes.number.isRequired,
       name: PropTypes.string.isRequired,
       price: PropTypes.number.isRequired
@@ -41,30 +41,30 @@ class ProductsList extends PureComponent {
   }
 
   componentWillMount() {
-    this.props.fetchAllProducts()
+    this.props.fetchAllCompanys()
   }
 
-  createProduct = (product) => {
-  this.props.createProduct(product)
+  createCompany = (Company) => {
+  this.props.createCompany(Company)
 }
 
-  removeProduct = (productId) => {
-  this.props.removeProduct(productId)
+  removeCompany = (CompanyId) => {
+  this.props.removeCompany(CompanyId)
 }
 
   render() {
-    const {products, classes} = this.props
+    const {Companys, classes} = this.props
     return (
       <Paper className={classes.root}>
-        <h1>Products</h1>
+        <h1>Companys</h1>
         
         <ExpansionPanel>
           <ExpansionPanelSummary expandIcon={<ExpandMoreIcon />}>
-            <Typography className={classes.heading}>Add new product...</Typography>
+            <Typography className={classes.heading}>Add new Company...</Typography>
           </ExpansionPanelSummary>
           <ExpansionPanelDetails>
             <Typography>
-              <ProductForm onSubmit={this.createProduct} />
+              <CompanyForm onSubmit={this.createCompany} />
           </Typography>
           </ExpansionPanelDetails>
         </ExpansionPanel>
@@ -82,16 +82,16 @@ class ProductsList extends PureComponent {
             </TableRow>
           </TableHead>
           <TableBody>
-            {products
+            {Companys
             .sort((p1, p2) => (p2.price - p1.price))
-            .map(product => {
+            .map(Company => {
               return (
-                <TableRow key={product.id}>
-                  <TableCell numeric>{product.id}</TableCell>
-                  <TableCell><Link to={`/products/${product.id}`}>{product.title}</Link></TableCell>
-                  <TableCell numeric>{product.author}</TableCell>
-                  <TableCell numeric>{product.price}.00</TableCell>
-                  <TableCell numeric> <button onClick={() => this.removeProduct(product.id)}> X </button></TableCell>
+                <TableRow key={Company.id}>
+                  <TableCell numeric>{Company.id}</TableCell>
+                  <TableCell><Link to={`/Companys/${Company.id}`}>{Company.title}</Link></TableCell>
+                  <TableCell numeric>{Company.author}</TableCell>
+                  <TableCell numeric>{Company.price}.00</TableCell>
+                  <TableCell numeric> <button onClick={() => this.removeCompany(Company.id)}> X </button></TableCell>
                 </TableRow>
               );
             })}
@@ -102,17 +102,17 @@ class ProductsList extends PureComponent {
   }
 }
 
-//  <h1>Create a new product</h1>
-//               <ProductForm onSubmit={this.createProduct} />
+//  <h1>Create a new Company</h1>
+//               <CompanyForm onSubmit={this.createCompany} />
 
 const mapStateToProps = function (state) {
   return {
     // currentUser: state.currentUser,
-    products: state.products
+    Companys: state.Companys
   }
 }
 
 export default combine(
   withStyles(styles),
-  connect(mapStateToProps, { fetchAllProducts, createProduct, removeProduct })
-)(ProductsList)
+  connect(mapStateToProps, { fetchAllCompanys, createCompany, removeCompany })
+)(CompanyList)

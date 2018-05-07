@@ -2,15 +2,15 @@ import * as request from 'superagent'
 
 const baseUrl = 'http://localhost:4009'
 
-export const UPDATE_PRODUCT = 'UPDATE_PRODUCT'
+export const UPDATE_COMPANY = 'UPDATE_COMPANY'
 
 
-export const updateProduct = (productId, updates) => (dispatch) => {
+export const updateCompany = (companyId, updates) => (dispatch) => {
     request
-        .put(`${baseUrl}/products/${productId}`)
+        .put(`${baseUrl}/companys/${companyId}`)
         .send(updates)
         .then(response => dispatch ({ 
-            type: UPDATE_PRODUCT,
+            type: UPDATE_COMPANY,
             payload: response.body
         }) )
 }

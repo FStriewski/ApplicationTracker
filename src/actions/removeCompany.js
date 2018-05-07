@@ -1,14 +1,14 @@
 import * as request from 'superagent'
-export const REMOVE_PRODUCT = 'REMOVE_PRODUCT'
+export const REMOVE_COMPANY = 'REMOVE_COMPANY'
 
 
 const baseUrl = 'http://localhost:4009'
 
- export const removeProduct = (productId) => (dispatch) => {
+ export const removeCompany = (companyId) => (dispatch) => {
     request
-        .delete(`${baseUrl}/products/${productId}`)
+        .delete(`${baseUrl}/companys/${companyId}`)
         .then(response => dispatch({
-            type: REMOVE_PRODUCT,
+            type: REMOVE_COMPANY,
             payload: response.body
         })
     

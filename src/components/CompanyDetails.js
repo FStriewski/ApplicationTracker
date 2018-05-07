@@ -1,11 +1,11 @@
 import React, {PureComponent} from 'react'
 import PropTypes from 'prop-types'
 import {connect} from 'react-redux'
-import {fetchProduct} from '../actions/fetchProduct'
-import { updateProduct } from '../actions/updateProduct'
+import {fetchCompany} from '../actions/fetchCompany'
+import { updateCompany } from '../actions/updateCompany'
 // import { BrowserRouter as Router, Route, Redirect } from 'react-router-dom'
 import { Link } from 'react-router-dom'
-import ProductForm from './ProductForm'
+import CompanyForm from './CompanyForm'
 import * as combine from "lodash/fp/compose"
 import { withStyles } from 'material-ui/styles';
 import Card, { CardActions, CardContent, CardMedia } from 'material-ui/Card';
@@ -23,8 +23,8 @@ const styles = {
   },
 };
 
-// function ProductDetails(props) {
-  class ProductDetails extends React.Component {
+// function CompanyDetails(props) {
+  class CompanyDetails extends React.Component {
 
   state = {
     edit: false
@@ -36,56 +36,56 @@ const styles = {
     })
   }
 
-  updateProduct = (product) => {
-    this.props.updateProduct(this.props.match.params.id, product)
+  updateCompany = (Company) => {
+    this.props.updateCompany(this.props.match.params.id, Company)
     this.toggleEdit()
   }
 
   componentWillMount(props) {
-    this.props.fetchProduct(this.props.match.params.id)
+    this.props.fetchCompany(this.props.match.params.id)
   }
 
 
   render() {
-    const { product,classes } = this.props
-    if (!product) return null
+    const { Company,classes } = this.props
+    if (!Company) return null
 
     let image = null;
-    if (product.image) {
-      image = <img alt="productimage" />
+    if (Company.image) {
+      image = <img alt="Companyimage" />
     }
 
 
   return (
     <div>      {/* In edit mode display: */}
-      <Link to="/products">Back </Link>
+      <Link to="/Companys">Back </Link>
       {
         this.state.edit &&
-        <ProductForm initialValues={product} onSubmit={this.updateProduct} />
+        <CompanyForm initialValues={Company} onSubmit={this.updateCompany} />
       }
       {
-        !this.state.edit && product &&
+        !this.state.edit && Company &&
         <Card className={classes.card}>
           <CardMedia
             className={classes.media}
             image = {
-              product.imageurl
+              Company.imageurl
             }
             title="Contemplative Reptile"
           />
           <CardContent>
             <Typography gutterBottom variant="headline" component="h2">
-                {product.title}
+                {Company.title}
             </Typography>
             <Typography component="p">
-            <p>A book by: <b>{product.author}</b></p>
-                <p>{product.description}</p>
-                <p>Now for just {product.price}€ </p>
+            <p>A book by: <b>{Company.author}</b></p>
+                <p>{Company.description}</p>
+                <p>Now for just {Company.price}€ </p>
             </Typography>
           </CardContent>
           <CardActions>
             <Button size="small" color="primary">
-              Buy this product!
+              Buy this Company!
             </Button>
           </CardActions>
         </Card>
@@ -101,7 +101,7 @@ const styles = {
 }
 
 //    propTypes = {
-//   product: PropTypes.arrayOf(PropTypes.shape({
+//   Company: PropTypes.arrayOf(PropTypes.shape({
 //     id: PropTypes.number.isRequired,
 //     name: PropTypes.string.isRequired,
 //     price: PropTypes.number.isRequired,
@@ -114,14 +114,14 @@ const styles = {
 
 const mapStateToProps = function (state, props) {
   return {
-    product: state.product
+    Company: state.Company
   }
 }
 
 export default combine(
   withStyles(styles),
-  connect(mapStateToProps, { fetchProduct, updateProduct })
-)(ProductDetails)
+  connect(mapStateToProps, { fetchCompany, updateCompany })
+)(CompanyDetails)
 
 
 
@@ -130,9 +130,9 @@ export default combine(
 
 
 
-// class ProductDetails extends PureComponent {
+// class CompanyDetails extends PureComponent {
 //   static propTypes = {
-//     product: PropTypes.arrayOf(PropTypes.shape({
+//     Company: PropTypes.arrayOf(PropTypes.shape({
 //       id: PropTypes.number.isRequired,
 //       name: PropTypes.string.isRequired,
 //       price: PropTypes.number.isRequired,
@@ -145,9 +145,9 @@ export default combine(
 
 // const mapStateToProps = function (state, props) {
 //   return {
-//    product: state.product
+//    Company: state.Company
 //   }
 // }
 
 
-// export default connect(mapStateToProps, { fetchProduct, updateProduct })(ProductDetails)
+// export default connect(mapStateToProps, { fetchCompany, updateCompany })(CompanyDetails)

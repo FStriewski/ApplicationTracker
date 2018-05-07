@@ -4,7 +4,7 @@ import React, { PureComponent } from 'react'
 import LogInPage from '../userHandling/LogInPage'
 import LogOutPage from '../userHandling/LogOutPage'
 import SignUpPage from '../userHandling/SignUpPage'
-import ProductsList from '../ProductsList'
+import CompanyList from '../CompanyList'
 import { Link } from 'react-router-dom'
 import * as combine from "lodash/fp/compose"
 
@@ -59,7 +59,7 @@ class TopBar extends React.Component {
         <AppBar position="static">
           <Toolbar>
             <Typography variant="title" color="inherit" className={classes.flex}>
-              <Link to={'/products'} component={ProductsList} className="products">WebShop 3000</Link>
+              <Link to={'/companys'} component={CompanyList} className="companys">WebShop 3000</Link>
             </Typography>
           
               <div>  
