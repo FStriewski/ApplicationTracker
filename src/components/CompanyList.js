@@ -17,6 +17,7 @@ import ExpansionPanel, {
 } from 'material-ui/ExpansionPanel';
 import Typography from 'material-ui/Typography';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
+import FilterBar from './FilterBar'
 
 
 const styles = theme => ({
@@ -53,10 +54,10 @@ class CompanyList extends PureComponent {
     })).isRequired
   }
 
-state = {
-  language: "All",
-  openpos: "All",
-}
+// state = {
+//   language: "All",
+//   openpos: "All",
+// }
 
 
   componentWillMount() {
@@ -71,16 +72,6 @@ state = {
   this.props.removeCompany(CompanyId)
 }
 
-filterLanguage = () => {
-  if (this.state.language === "All") {
-    this.state.language = "INT"
-    return this.state.companys.filter(c => c.language !== "NL")
-  }
-  if (this.state.language === "INT"){
-    this.state.language = "All"
-    return this.state.companys
-  }
-}
 
 
   render() {
@@ -98,8 +89,7 @@ filterLanguage = () => {
           </ExpansionPanelDetails>
         </ExpansionPanel>
 
-              <button onClick={this.filterLanguage}>Filter 1</button>
-              <button>Filter 2</button>
+<FilterBar/>
 
         <Table className={classes.table}>
           <TableHead >

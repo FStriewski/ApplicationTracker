@@ -42,9 +42,8 @@ class CompanyForm extends React.Component {
 			link: "",
 			comments: "",
 			market:"",
+			score:"",
 		})
-		
-		
 	}
 
 	handleChange = (event) => {
