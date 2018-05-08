@@ -89,6 +89,7 @@ class CompanyList extends PureComponent {
               <TableCell className={classes.header}>Language</TableCell>
               <TableCell className={classes.header}>Score</TableCell>
               <TableCell className={classes.header}>Open Pos.</TableCell>
+              <TableCell className={classes.header}>Link </TableCell>
               <TableCell className={classes.header}>Remove</TableCell>
 
             </TableRow>
@@ -104,6 +105,7 @@ class CompanyList extends PureComponent {
                   <TableCell className={classes.cell}>{company.language}</TableCell>
                   <TableCell className={classes.cell}>{company.score}</TableCell>
                   <TableCell className={classes.cell}>{company.applied}</TableCell>
+                  <TableCell className={classes.cell}><a href={company.link} target="_blank">Link</a></TableCell>
                   <TableCell className={classes.cell}> <button onClick={() => this.removeCompany(company.id)}> X </button></TableCell>
                 </TableRow>
               );

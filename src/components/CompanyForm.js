@@ -113,6 +113,11 @@ class CompanyForm extends React.Component {
 						<Input id="company-focus" name="focus" value={this.state.focus || initialValues.focus || ''} onChange={this.handleChange} />
 					</FormControl>
 
+						<FormControl className={classes.formControl}>
+							<InputLabel htmlFor="company-comments">Comments</InputLabel>
+							<Input id="company-comments" name="comments" value={this.state.comments || initialValues.comments || ''} onChange={this.handleChange} />
+						</FormControl>
+
 					<FormControl className={classes.formControl}>
 						<InputLabel htmlFor="company-link"> Link</InputLabel>
 						<Input id="company-link" name="link" value={this.state.link || ''} onChange={this.handleChange} />
