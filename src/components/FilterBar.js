@@ -2,7 +2,7 @@ import React, { PureComponent } from 'react'
 import { connect } from 'react-redux'
 import { withStyles } from 'material-ui/styles';
 import * as combine from "lodash/fp/compose"
-
+import { filterByLanguage, filterByPosition} from '../actions/filter'
 
 const styles = theme => ({
     root: {
@@ -27,6 +27,7 @@ class FilterBar extends PureComponent {
             })
             const int =  this.props.companys.filter(c => c.language !== "NL")
             console.log(int)
+            this.props.filterByLanguage(int)
             return int
         }
         if (this.state.language === "INT") {
@@ -35,6 +36,7 @@ class FilterBar extends PureComponent {
             })
             const all = this.props.companys
             console.log(all)
+            this.props.filterByLanguage(all)
             return all
         }
     }
@@ -63,5 +65,5 @@ const mapStateToProps = (state) => ({
 
 export default combine(
     withStyles(styles),
-    connect(mapStateToProps, { })
+    connect(mapStateToProps, { filterByLanguage, filterByPosition  })
 )(FilterBar)
