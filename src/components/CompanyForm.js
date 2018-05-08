@@ -33,6 +33,18 @@ class CompanyForm extends React.Component {
 	handleSubmit = (e) => {
 		e.preventDefault()
 		this.props.onSubmit(this.state)
+		// Flush form content on submit:
+		
+		this.setState( {
+			name: "",
+			focus: "",
+			applied: "",
+			link: "",
+			comments: "",
+			market:"",
+		})
+		
+		
 	}
 
 	handleChange = (event) => {
