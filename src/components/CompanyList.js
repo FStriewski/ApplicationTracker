@@ -72,7 +72,6 @@ state = {
   filterPositionActive: false,
 }
 
-
   componentWillMount() {
     this.props.fetchAllCompanys()
   }

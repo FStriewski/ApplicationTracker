@@ -2,7 +2,9 @@ import React, { PureComponent } from 'react'
 import { connect } from 'react-redux'
 import { withStyles } from 'material-ui/styles';
 import * as combine from "lodash/fp/compose"
-import { filterByLanguage, filterByPosition} from '../actions/filter'
+import { filterByTerm } from '../actions/filter'
+import { FormControl } from 'material-ui/Form';
+import Input, { InputLabel } from 'material-ui/Input';
 
 const styles = theme => ({
     root: {
@@ -15,47 +17,22 @@ const styles = theme => ({
 
 class FilterBar extends PureComponent {
 
-    state = {
-        language: "All",
-        openpos: "All",
+    handleChange = (event) => {
+        console.log(event.target.value)
+        this.props.filterByTerm(event.target.value)
     }
-
-    // filterLanguage = () => {
-    //     if (this.state.language === "All") {
-    //         this.setState({
-    //             language: "INT"
-    //         })
-    //         const int =  this.props.companys.filter(c => c.language !== "NL")
-    //         //const int_ids = int.map(x => x.id)
-    //         console.log(int)
-    //         this.props.filterByLanguage(int)
-    //         return int
-    //     }
-    //     if (this.state.language === "INT") {
-    //         this.setState({
-    //             language: "All"
-    //         })
-    //         const all = this.props.companys
-    //         console.log(all)
-    //         this.props.filterByLanguage(all)
-    //         return all
-    //     }
-    // }
-
 
     render(){
         const { companys, classes } = this.props
         return (
-            <div>
-                {/* <button onClick={this.filterLanguage}>Filter 1</button>
-
-
-                <button>Filter 2</button> */}
-            </div>
+            <form>
+                <FormControl className={classes.formControl}>
+                    <InputLabel htmlFor="search-term"></InputLabel>
+                    <Input id="search-term" name="name" value={this.state.name} onChange={this.handleChange} />
+                </FormControl>
+            </form>
         )
     }
-
-
 }
 
 
@@ -66,5 +43,5 @@ const mapStateToProps = (state) => ({
 
 export default combine(
     withStyles(styles),
-    connect(mapStateToProps, { filterByLanguage, filterByPosition  })
+    connect(mapStateToProps, { filterByTerm })
 )(FilterBar)
