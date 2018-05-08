@@ -53,6 +53,12 @@ class CompanyList extends PureComponent {
     })).isRequired
   }
 
+state = {
+  language: "All",
+  openpos: "All",
+}
+
+
   componentWillMount() {
     this.props.fetchAllCompanys()
   }
@@ -64,6 +70,18 @@ class CompanyList extends PureComponent {
   removeCompany = (CompanyId) => {
   this.props.removeCompany(CompanyId)
 }
+
+filterLanguage = () => {
+  if (this.state.language === "All") {
+    this.state.language = "INT"
+    return this.state.companys.filter(c => c.language !== "NL")
+  }
+  if (this.state.language === "INT"){
+    this.state.language = "All"
+    return this.state.companys
+  }
+}
+
 
   render() {
     const {companys, classes} = this.props
@@ -79,6 +97,9 @@ class CompanyList extends PureComponent {
           </Typography>
           </ExpansionPanelDetails>
         </ExpansionPanel>
+
+              <button onClick={this.filterLanguage}>Filter 1</button>
+              <button>Filter 2</button>
 
         <Table className={classes.table}>
           <TableHead >
