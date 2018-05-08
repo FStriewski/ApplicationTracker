@@ -16,6 +16,8 @@ const styles = theme => ({
 
 
 class FilterBar extends PureComponent {
+// Don't remove:
+    state = {}
 
     handleChange = (event) => {
         console.log(event.target.value)
@@ -23,7 +25,7 @@ class FilterBar extends PureComponent {
     }
 
     render(){
-        const { companys, classes } = this.props
+        const { classes } = this.props
         return (
             <form>
                 <FormControl className={classes.formControl}>
@@ -37,7 +39,7 @@ class FilterBar extends PureComponent {
 
 
 const mapStateToProps = (state) => ({
-        companys: state.companys
+       
     })
 
 
