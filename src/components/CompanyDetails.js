@@ -1,9 +1,7 @@
 import React, {PureComponent} from 'react'
 import PropTypes from 'prop-types'
 import {connect} from 'react-redux'
-import {fetchCompany} from '../actions/fetchCompany'
-import { updateCompany } from '../actions/updateCompany'
-// import { BrowserRouter as Router, Route, Redirect } from 'react-router-dom'
+import { fetchCompany, updateCompany} from '../actions/company'
 import { Link } from 'react-router-dom'
 import CompanyForm from './CompanyForm'
 import * as combine from "lodash/fp/compose"

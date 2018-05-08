@@ -41,6 +41,8 @@ class FilterBar extends PureComponent {
         return (
             <div>
                 <button onClick={this.filterLanguage}>Filter 1</button>
+
+                
                 <button>Filter 2</button>
             </div>
         )

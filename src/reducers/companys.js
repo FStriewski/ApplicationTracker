@@ -1,6 +1,4 @@
-import {ADD_COMPANY} from '../actions/createCompany'
-import {FETCHED_ALL_COMPANYS } from '../actions/fetchCompany'
-import { REMOVE_COMPANY } from '../actions/removeCompany'
+import { ADD_COMPANY, FETCHED_ALL_COMPANYS, REMOVE_COMPANY} from '../actions/company'
 
 export default function (state = [], action) {
   switch (action.type) {

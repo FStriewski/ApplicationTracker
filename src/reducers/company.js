@@ -1,5 +1,4 @@
-import { FETCHED_DETAILED_COMPANY } from '../actions/fetchCompany'
-import { UPDATE_COMPANY } from '../actions/updateCompany'
+import { FETCHED_DETAILED_COMPANY, UPDATE_COMPANY } from '../actions/company'
 
 export default function (state = [], action) {
 
