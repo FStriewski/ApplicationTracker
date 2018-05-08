@@ -22,13 +22,17 @@ class FilterBar extends PureComponent {
 
     filterLanguage = () => {
         if (this.state.language === "All") {
-            this.state.language = "INT"
+            this.setState({
+                language: "INT"
+            })
             const int =  this.props.companys.filter(c => c.language !== "NL")
             console.log(int)
             return int
         }
         if (this.state.language === "INT") {
-            this.state.language = "All"
+            this.setState({
+                language: "All"
+            })
             const all = this.props.companys
             console.log(all)
             return all
@@ -42,7 +46,7 @@ class FilterBar extends PureComponent {
             <div>
                 <button onClick={this.filterLanguage}>Filter 1</button>
 
-                
+
                 <button>Filter 2</button>
             </div>
         )
