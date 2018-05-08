@@ -16,11 +16,16 @@ const styles = theme => ({
 	},
 	formControlPicker: {
 		margin: theme.spacing.unit,
-		width: "100px",
+		width: "120px",
+	},
+	formControlComments: {
+		margin: theme.spacing.unit,
+		width: "400px",
 	},
 	button: {
 		color: "#711F9B",
 		backgroundColor: "white",
+		marginTop: 10,
 	},
 });
 
@@ -28,6 +33,7 @@ class CompanyForm extends React.Component {
 	state = {
 		language:"NL",
 		score: "",
+		applied: "n",
 		};
 
 	handleSubmit = (e) => {
@@ -69,6 +75,11 @@ class CompanyForm extends React.Component {
 						<Input id="company-title" name="name" value={this.state.name || initialValues.name || ''} onChange={this.handleChange} />
 					</FormControl>
 
+						<FormControl className={classes.formControl}>
+							<InputLabel htmlFor="company-link"> Link</InputLabel>
+							<Input id="company-link" name="link" value={this.state.link || ''} onChange={this.handleChange} />
+						</FormControl>
+
 						<FormControl className={classes.formControlPicker}>
 							<InputLabel htmlFor="language">Language</InputLabel>
 						<Select
@@ -82,6 +93,21 @@ class CompanyForm extends React.Component {
 							<MenuItem value={"NL"}>NL</MenuItem>
 							<MenuItem value={"INT"}>INT</MenuItem>
 						</Select>
+						</FormControl>
+
+						<FormControl className={classes.formControlPicker}>
+							<InputLabel htmlFor="applied">Jobs?</InputLabel>
+							<Select
+								value={this.state.applied}
+								onChange={this.handleChange}
+								inputProps={{
+									name: 'applied',
+									id: 'applied',
+								}}
+							>
+								<MenuItem value={"n"}>No</MenuItem>
+								<MenuItem value={"y"}>Yes</MenuItem>
+							</Select>
 						</FormControl>
 
 						<FormControl className={classes.formControlPicker}>
@@ -107,11 +133,6 @@ class CompanyForm extends React.Component {
 							<MenuItem value={10}>10</MenuItem>
 						</Select>
 						</FormControl>
-
-					<FormControl className={classes.formControl}>
-						<InputLabel htmlFor="company-applied">Open Positions? y/n</InputLabel>
-						<Input id="company-applied" name="applied" value={this.state.applied || initialValues.applied || ''} onChange={this.handleChange} />
-					</FormControl>
 				</div>
 				<div>
 					<FormControl className={classes.formControl}>
@@ -124,15 +145,10 @@ class CompanyForm extends React.Component {
 						<Input id="company-focus" name="focus" value={this.state.focus || initialValues.focus || ''} onChange={this.handleChange} />
 					</FormControl>
 
-						<FormControl className={classes.formControl}>
+						<FormControl className={classes.formControlComments}>
 							<InputLabel htmlFor="company-comments">Comments</InputLabel>
 							<Input id="company-comments" name="comments" value={this.state.comments || initialValues.comments || ''} onChange={this.handleChange} />
 						</FormControl>
-
-					<FormControl className={classes.formControl}>
-						<InputLabel htmlFor="company-link"> Link</InputLabel>
-						<Input id="company-link" name="link" value={this.state.link || ''} onChange={this.handleChange} />
-					</FormControl>
 				</div>
 				<div>
 					<Button variant="raised" size="medium" type="submit" className={classes.button}>

@@ -39,6 +39,7 @@ const styles = theme => ({
   cell: {
     borderColor: "#711F9B",
     backgroundColor: "#F3F0F2",
+    fontSize: 15,
   },
   heading: {
     color: "#711F9B",
