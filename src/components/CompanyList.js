@@ -38,6 +38,7 @@ const styles = theme => ({
   },
   cell: {
     borderColor: "#711F9B",
+    backgroundColor: "#F3F0F2",
   },
   heading: {
     color: "#711F9B",
@@ -127,7 +128,7 @@ state = {
       <Paper className={classes.root}>
         <ExpansionPanel>
           <ExpansionPanelSummary expandIcon={<ExpandMoreIcon />}>
-            <Typography className={classes.heading}>Add new...</Typography>
+            <Typography className={classes.heading}>({companys.length} found) -- Add more...</Typography>
           </ExpansionPanelSummary>
           <ExpansionPanelDetails>
             <Typography>

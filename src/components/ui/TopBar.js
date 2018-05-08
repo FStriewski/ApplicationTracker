@@ -15,11 +15,11 @@ import FilterCenterFocus from '@material-ui/icons/FilterCenterFocus'
 
 const styles = {
 bar: {
-  borderColor: "#721F9C",
-  color: "#721F9C",
+  borderColor: "white",
+  color: "white",
   borderWidth: "0.5px",
   borderStyle: "solid",
-  backgroundColor: "#F2F6F7",
+  backgroundColor: "#4D484F",
 },
   root: {
     flexGrow: 1,
@@ -32,7 +32,7 @@ bar: {
     marginRight: 20,
   },
   title:{
-    color: "#721F9C",
+    color: "white",
   },
   icon:{
     height: "15%",
