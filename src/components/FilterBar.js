@@ -20,36 +20,37 @@ class FilterBar extends PureComponent {
         openpos: "All",
     }
 
-    filterLanguage = () => {
-        if (this.state.language === "All") {
-            this.setState({
-                language: "INT"
-            })
-            const int =  this.props.companys.filter(c => c.language !== "NL")
-            console.log(int)
-            this.props.filterByLanguage(int)
-            return int
-        }
-        if (this.state.language === "INT") {
-            this.setState({
-                language: "All"
-            })
-            const all = this.props.companys
-            console.log(all)
-            this.props.filterByLanguage(all)
-            return all
-        }
-    }
+    // filterLanguage = () => {
+    //     if (this.state.language === "All") {
+    //         this.setState({
+    //             language: "INT"
+    //         })
+    //         const int =  this.props.companys.filter(c => c.language !== "NL")
+    //         //const int_ids = int.map(x => x.id)
+    //         console.log(int)
+    //         this.props.filterByLanguage(int)
+    //         return int
+    //     }
+    //     if (this.state.language === "INT") {
+    //         this.setState({
+    //             language: "All"
+    //         })
+    //         const all = this.props.companys
+    //         console.log(all)
+    //         this.props.filterByLanguage(all)
+    //         return all
+    //     }
+    // }
 
 
     render(){
         const { companys, classes } = this.props
         return (
             <div>
-                <button onClick={this.filterLanguage}>Filter 1</button>
+                {/* <button onClick={this.filterLanguage}>Filter 1</button>
 
 
-                <button>Filter 2</button>
+                <button>Filter 2</button> */}
             </div>
         )
     }

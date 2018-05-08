@@ -3,6 +3,7 @@ import PropTypes from 'prop-types'
 import LogOutPage from './userHandling/LogOutPage'
 import {connect} from 'react-redux'
 import { fetchAllCompanys, removeCompany, createCompany} from '../actions/company'
+import { filterByLanguage, filterByPosition } from '../actions/filter'
 import {Link } from 'react-router-dom'
 import CompanyForm from './CompanyForm'
 import { withStyles } from 'material-ui/styles';
@@ -15,7 +16,9 @@ import ExpansionPanel, {
 } from 'material-ui/ExpansionPanel';
 import Typography from 'material-ui/Typography';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
+import Visibility from '@material-ui/icons/Visibility';
 import FilterBar from './FilterBar'
+import Button from 'material-ui/Button';
 
 
 const styles = theme => ({
@@ -40,6 +43,14 @@ const styles = theme => ({
     color: "#711F9B",
     fontSize: 16,
   },
+  button: {
+    color: "#711F9B",
+    fontSize: 14,
+    textTransform: "capitalize",
+    borderColor: "#711F9B",
+    padding: 0,
+    textDecoration: "underline",
+  },
 });
 
 
@@ -52,10 +63,12 @@ class CompanyList extends PureComponent {
     })).isRequired
   }
 
-// state = {
-//   language: "All",
-//   openpos: "All",
-// }
+state = {
+  language: "All",
+  position: "All",
+  filterLanguageActive: false,
+  filterPositionActive: false,
+}
 
 
   componentWillMount() {
@@ -70,7 +83,43 @@ class CompanyList extends PureComponent {
   this.props.removeCompany(CompanyId)
 }
 
+  filterLanguage = () => {
+    if (this.state.language === "All") {
+      this.setState({
+        language: "INT",
+        filterLanguageActive: true,
+      })
+      const int = this.props.companys.filter(c => c.language !== "NL")
+      this.props.filterByLanguage(int)
+      return 
+    }
+    if (this.state.language === "INT") {
+      this.setState({
+        language: "All",
+        filterLanguageActive: false,
+      })
+      this.props.fetchAllCompanys()
+    }
+  }
 
+  filterPosition = () => {
+    if (this.state.position === "All") {
+      this.setState({
+        position: "Open",
+        filterPositionActive: true,
+      })
+      const openPositions = this.props.companys.filter(c => c.applied.toLowerCase() !== "n" )
+      this.props.filterByPosition(openPositions)
+      return
+    }
+    if (this.state.position === "Open") {
+      this.setState({
+        position: "All",
+        filterPositionActive: false,
+      })
+      this.props.fetchAllCompanys()
+    }
+  }
 
   render() {
     const {companys, classes} = this.props
@@ -95,9 +144,13 @@ class CompanyList extends PureComponent {
 
               <TableCell className={classes.header}>#</TableCell>
               <TableCell className={classes.header}>Name</TableCell>
-              <TableCell className={classes.header}>Language</TableCell>
+              <TableCell className={classes.header}>
+                <Button className={classes.button} onClick={this.filterLanguage}>{this.state.filterLanguageActive ? <Visibility/>: "" }Language </Button>
+              </TableCell>
               <TableCell className={classes.header}>Score</TableCell>
-              <TableCell className={classes.header}>Open Pos.</TableCell>
+              <TableCell className={classes.header}>
+                <Button className={classes.button} onClick={this.filterPosition}>{this.state.filterPositionActive ? <Visibility /> : ""}Jobs </Button>
+              </TableCell>
               <TableCell className={classes.header}>Link </TableCell>
               <TableCell className={classes.header}>Remove</TableCell>
 
@@ -138,5 +191,5 @@ const mapStateToProps = function (state) {
 
 export default combine(
   withStyles(styles),
-  connect(mapStateToProps, { fetchAllCompanys, createCompany, removeCompany })
+  connect(mapStateToProps, { fetchAllCompanys, createCompany, removeCompany, filterByLanguage, filterByPosition })
 )(CompanyList)
