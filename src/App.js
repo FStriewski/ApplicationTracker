@@ -5,7 +5,6 @@ import CompanyDetails from './components/CompanyDetails'
 import SignUpPage from './components/userHandling/SignUpPage' 
 import LogInPage from './components/userHandling/LogInPage' 
 import LogOutPage from './components/userHandling/LogOutPage' 
-import Landing from './components/Landing'
 import { BrowserRouter as Router, Route, Redirect } from 'react-router-dom'
 import TopBar from './components/ui/TopBar'
 

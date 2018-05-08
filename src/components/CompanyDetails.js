@@ -1,12 +1,11 @@
-import React, {PureComponent} from 'react'
-import PropTypes from 'prop-types'
+import React from 'react'
 import {connect} from 'react-redux'
 import { fetchCompany, updateCompany} from '../actions/company'
 import { Link } from 'react-router-dom'
 import CompanyForm from './CompanyForm'
 import * as combine from "lodash/fp/compose"
 import { withStyles } from 'material-ui/styles';
-import Card, { CardActions, CardContent, CardMedia } from 'material-ui/Card';
+import Card, { CardContent, CardMedia } from 'material-ui/Card';
 import Button from 'material-ui/Button';
 import Typography from 'material-ui/Typography';
 import Domain from '@material-ui/icons/Domain'

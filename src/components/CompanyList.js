@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import LogOutPage from './userHandling/LogOutPage'
 import {connect} from 'react-redux'
 import { fetchAllCompanys, removeCompany, createCompany} from '../actions/company'
-import {Link, Redirect } from 'react-router-dom'
+import {Link } from 'react-router-dom'
 import CompanyForm from './CompanyForm'
 import { withStyles } from 'material-ui/styles';
 import Table, { TableBody, TableCell, TableHead, TableRow } from 'material-ui/Table';

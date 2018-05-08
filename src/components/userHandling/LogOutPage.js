@@ -1,7 +1,6 @@
 import React, {PureComponent} from 'react'
 import {connect} from 'react-redux'
 import { logout } from '../../actions/users'
-import {Redirect} from 'react-router-dom'
 import Landing from '../Landing'
 import { Link } from 'react-router-dom'
 

@@ -1,10 +1,8 @@
 
 import React, { PureComponent } from 'react'
-import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 import SignUpPage from './userHandling/SignUpPage'
 import LogInPage from './userHandling/LogInPage'
-import LogOutPage from './userHandling/LogOutPage' 
 import { Link } from 'react-router-dom'
 
 

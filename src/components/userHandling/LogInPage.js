@@ -3,7 +3,7 @@ import {connect} from 'react-redux'
 import { loginUser } from '../../actions/users'
 import LogInForm from './LogInForm'
 import {Redirect} from 'react-router-dom'
-import PropTypes from 'prop-types'
+
 
 
 

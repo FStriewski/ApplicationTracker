@@ -1,20 +1,14 @@
 
-import React, { PureComponent } from 'react'
-
+import React from 'react'
 import LogInPage from '../userHandling/LogInPage'
 import LogOutPage from '../userHandling/LogOutPage'
 import SignUpPage from '../userHandling/SignUpPage'
-import CompanyList from '../CompanyList'
 import { Link } from 'react-router-dom'
-import * as combine from "lodash/fp/compose"
-
 import { withStyles } from 'material-ui/styles';
 import AppBar from 'material-ui/AppBar';
 import Toolbar from 'material-ui/Toolbar';
 import Typography from 'material-ui/Typography';
 import IconButton from 'material-ui/IconButton';
-import Switch from 'material-ui/Switch';
-import { FormControlLabel, FormGroup } from 'material-ui/Form';
 import Menu, { MenuItem } from 'material-ui/Menu';
 import Dehaze from '@material-ui/icons/Dehaze'
 import FilterCenterFocus from '@material-ui/icons/FilterCenterFocus'
@@ -65,7 +59,7 @@ class TopBar extends React.Component {
 
   render() {
     const { classes } = this.props;
-    const { auth, anchorEl } = this.state;
+    const { anchorEl } = this.state;
     const open = Boolean(anchorEl);
 
     return (
