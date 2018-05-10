@@ -180,8 +180,6 @@ state = {
   }
 }
 
-//  <h1>Create a new Company</h1>
-//               <CompanyForm onSubmit={this.createCompany} />
 
 const mapStateToProps = function (state) {
   return {
