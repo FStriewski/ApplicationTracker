@@ -5,6 +5,8 @@ import * as combine from "lodash/fp/compose"
 import { filterByTerm } from '../actions/filter'
 import { FormControl } from 'material-ui/Form';
 import Input, { InputLabel } from 'material-ui/Input';
+import { fetchAllCompanys } from '../actions/company'
+import TextField from "material-ui/TextField"
 
 const styles = theme => ({
     root: {
@@ -17,33 +19,63 @@ const styles = theme => ({
 
 class FilterBar extends PureComponent {
 // Don't remove:
-    state = {}
-
-    handleChange = (event) => {
-        console.log(event.target.value)
-        this.props.filterByTerm(event.target.value)
+    state = {
+     term : "",
     }
 
+    // searchingByOrderName = term => {
+    //      return function (x) {
+    //          return x.name.toLowerCase().includes(term.toLowerCase()) || !term;
+    //      };
+    //  }
+
+    searchHandler = event => {
+        this.setState({ term: event.target.value })
+        console.log(this.state.term)
+    }
+
+
+    
+
+    // handleChange = (event) => {
+    
+    //   return this.props.companys.filter(company => company.name.toLowerCase().includes(event.target.value.toLowerCase()) || 'none')
+    
+    // }
+
     render(){
-        const { classes } = this.props
+        const { companys, classes } = this.props
         return (
+            <div>
             <form>
-                <FormControl className={classes.formControl}>
+                {/* <FormControl className={classes.formControl}>
                     <InputLabel htmlFor="search-term"></InputLabel>
                     <Input id="search-term" name="name" value={this.state.name} onChange={this.handleChange} />
-                </FormControl>
-            </form>
+                </FormControl> */}
+            <TextField
+                label="Search Name"
+                type="text"
+                onChange={this.searchHandler}
+                />
+                </form>
+
+                    {/* {companys.filter( x =>
+                    x.name.toLowerCase().includes(this.state.term.toLowerCase()) 
+                     
+                        
+                        )} */}
+            </div>
         )
     }
 }
 
 
 const mapStateToProps = (state) => ({
-       
+        companys: state.companys
     })
 
 
 export default combine(
     withStyles(styles),
-    connect(mapStateToProps, { filterByTerm })
+    connect(mapStateToProps, { filterByTerm, fetchAllCompanys })
 )(FilterBar)

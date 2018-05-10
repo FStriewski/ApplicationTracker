@@ -17,7 +17,7 @@ export default function (state = [], action) {
       return action.payload 
 
     case BY_TERM:
-      return state.filter(company => company.name.toLowerCase().match(action.payload) )
+      return action.payload
 
      case REMOVE_COMPANY:
       return state.filter(company => company.id !== action.payload)
