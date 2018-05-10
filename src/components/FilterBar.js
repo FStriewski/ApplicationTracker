@@ -23,7 +23,7 @@ class FilterBar extends PureComponent {
 
       let filter = this.props.companys.filter(company => company.name.toLowerCase().includes(event.target.value.toLowerCase()) )
       
-    return filter
+    return this.props.filterByTerm(filter)
     }
 
     render(){

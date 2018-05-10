@@ -17,6 +17,7 @@ export default function (state = [], action) {
       return action.payload 
 
     case BY_TERM:
+      console.log(action.payload)
       return action.payload
 
      case REMOVE_COMPANY:
