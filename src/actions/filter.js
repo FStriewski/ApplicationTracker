@@ -12,9 +12,9 @@ export const filterByPosition = (selection) => ({
     payload: selection,
 })
 
-export const filterByTerm = (term) => ({
+export const filterByTerm = (selection) => ({
     type: BY_TERM,
-    payload: term,
+    payload: selection,
 })
 
 
