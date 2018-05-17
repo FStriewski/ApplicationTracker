@@ -41,12 +41,7 @@ bar: {
 
 class TopBar extends React.Component {
   state = {
-    auth: true,
     anchorEl: null,
-  };
-
-  handleChange = (event, checked) => {
-    this.setState({ auth: checked });
   };
 
   handleMenu = event => {

@@ -24,8 +24,9 @@ import Button from 'material-ui/Button';
 const styles = theme => ({
   root: {
     width: '100%',
-    marginTop: theme.spacing.unit * 1,
+    marginTop: theme.spacing.unit * 2,
     overflowX: 'auto',
+    height: "550px",
   },
   table: {
     minWidth: 700,
@@ -54,6 +55,9 @@ const styles = theme => ({
     padding: 0,
     textDecoration: "underline",
   },
+  expansion: {
+    backgroundColor:"#f2f2f2" 
+  }
 });
 
 
@@ -127,7 +131,7 @@ state = {
     const {companys, classes} = this.props
     return (
       <Paper className={classes.root}>
-        <ExpansionPanel>
+        <ExpansionPanel className={classes.expansion}>
           <ExpansionPanelSummary expandIcon={<ExpandMoreIcon />}>
             <Typography className={classes.heading}>({companys.length} found) -- Add more...</Typography>
           </ExpansionPanelSummary>
