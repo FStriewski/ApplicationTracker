@@ -19,6 +19,7 @@ import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import Visibility from '@material-ui/icons/Visibility';
 import FilterBar from './FilterBar'
 import Button from 'material-ui/Button';
+import CompanyTable from './CompanyTable'
 
 
 const styles = theme => ({
@@ -30,6 +31,7 @@ const styles = theme => ({
   },
   table: {
     minWidth: 700,
+    height: "80%"
     // textAlign: "center", 
   },
   header: {
@@ -130,6 +132,7 @@ state = {
   render() {
     const {companys, classes} = this.props
     return (
+      <div id="companyListWrapper">
       <Paper className={classes.root}>
         <ExpansionPanel className={classes.expansion}>
           <ExpansionPanelSummary expandIcon={<ExpandMoreIcon />}>
@@ -142,9 +145,21 @@ state = {
           </ExpansionPanelDetails>
         </ExpansionPanel>
 
-<FilterBar/>
+        <ExpansionPanel className={classes.expansion}>
+          <ExpansionPanelSummary expandIcon={<ExpandMoreIcon />}>
+            <Typography className={classes.heading}>Filter...</Typography>
+          </ExpansionPanelSummary>
+          <ExpansionPanelDetails>
+            <Typography>
+                <FilterBar />
+          </Typography>
+          </ExpansionPanelDetails>
+        </ExpansionPanel>
 
-        <Table className={classes.table}>
+      <CompanyTable />
+    
+        {/* <div className={classes.table}>
+        <Table >
           <TableHead >
             <TableRow >
 
@@ -180,7 +195,10 @@ state = {
             })}
           </TableBody>
         </Table>
+          </div> */}
+
       </Paper>
+      </div>
     )
   }
 }

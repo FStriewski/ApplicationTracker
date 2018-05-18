@@ -32,7 +32,7 @@ class FilterBar extends PureComponent {
             <div>
             <form>
                 <FormControl className={classes.formControl}>
-                    <InputLabel htmlFor="search-term"></InputLabel>
+                    <InputLabel htmlFor="search-term">By Name</InputLabel>
                         <Input id="search-term" name="name" autoComplete="off" onChange={this.handleChange} />
                 </FormControl>
                 </form>
