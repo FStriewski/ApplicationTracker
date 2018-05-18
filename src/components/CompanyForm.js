@@ -7,6 +7,16 @@ import Select from 'material-ui/Select';
 import { MenuItem } from 'material-ui/Menu';
 
 const styles = theme => ({
+	root: {
+		width: '90%',
+	},
+	backButton: {
+		marginRight: theme.spacing.unit,
+	},
+	instructions: {
+		marginTop: theme.spacing.unit,
+		marginBottom: theme.spacing.unit,
+	},
 	container: {
 		display: 'flex',
 		flexWrap: 'wrap',
@@ -17,11 +27,11 @@ const styles = theme => ({
 	},
 	formControlPicker: {
 		margin: theme.spacing.unit,
-		width: "120px",
+		width: "10%",
 	},
 	formControlComments: {
 		margin: theme.spacing.unit,
-		width: "400px",
+		width: "20%",
 	},
 	button: {
 		color: "#711F9B",
@@ -30,8 +40,10 @@ const styles = theme => ({
 	},
 });
 
+
 class CompanyForm extends React.Component {
 	state = {
+		activeStep: 0,
 		language:"NL",
 		score: "",
 		applied: "n",

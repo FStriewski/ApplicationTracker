@@ -2,12 +2,10 @@ import React, {PureComponent} from 'react'
 import PropTypes from 'prop-types'
 import LogOutPage from './userHandling/LogOutPage'
 import {connect} from 'react-redux'
-import { fetchAllCompanys, removeCompany, createCompany} from '../actions/company'
-import { filterByLanguage, filterByPosition } from '../actions/filter'
-import {Link } from 'react-router-dom'
+import { fetchAllCompanys} from '../actions/company'
+
 import CompanyForm from './CompanyForm'
 import { withStyles } from 'material-ui/styles';
-import Table, { TableBody, TableCell, TableHead, TableRow } from 'material-ui/Table';
 import Paper from 'material-ui/Paper';
 import * as combine from "lodash/fp/compose"
 import ExpansionPanel, {
@@ -16,9 +14,7 @@ import ExpansionPanel, {
 } from 'material-ui/ExpansionPanel';
 import Typography from 'material-ui/Typography';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
-import Visibility from '@material-ui/icons/Visibility';
 import FilterBar from './FilterBar'
-import Button from 'material-ui/Button';
 import CompanyTable from './CompanyTable'
 
 
@@ -27,7 +23,7 @@ const styles = theme => ({
     width: '100%',
     marginTop: theme.spacing.unit * 2,
     overflowX: 'auto',
-    height: "550px",
+    height: "80%",
   },
   expansion: {
     backgroundColor:"#f2f2f2" 
@@ -50,11 +46,11 @@ class CompanyList extends PureComponent {
           <ExpansionPanelSummary expandIcon={<ExpandMoreIcon />}>
             <Typography className={classes.heading}>({companys.length} found) -- Add more...</Typography>
           </ExpansionPanelSummary>
-          <ExpansionPanelDetails>
+          {/* <ExpansionPanelDetails> */}
             <Typography>
               <CompanyForm onSubmit={this.createCompany} />
           </Typography>
-          </ExpansionPanelDetails>
+          {/* </ExpansionPanelDetails> */}
         </ExpansionPanel>
 
         <ExpansionPanel className={classes.expansion}>

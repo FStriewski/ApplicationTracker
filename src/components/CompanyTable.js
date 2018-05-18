@@ -9,18 +9,11 @@ import { withStyles } from 'material-ui/styles';
 import Table, { TableBody, TableCell, TableHead, TableRow } from 'material-ui/Table';
 import Paper from 'material-ui/Paper';
 import * as combine from "lodash/fp/compose"
-import Typography from 'material-ui/Typography';
 import Visibility from '@material-ui/icons/Visibility';
 import Button from 'material-ui/Button';
 
 
 const styles = theme => ({
-    root: {
-        width: '100%',
-        marginTop: theme.spacing.unit * 2,
-        overflowX: 'auto',
-        height: "550px",
-    },
     table: {
         minWidth: 700,
         height: "80%"
