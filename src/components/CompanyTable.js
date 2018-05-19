@@ -129,7 +129,7 @@ class CompanyTable extends PureComponent {
                                 </TableRow>
                             </TableHead>
                             <TableBody>
-                                {companys
+                                {companys 
                                     .sort((p1, p2) => (p2.score - p1.score))
                                     .map(company => {
                                         return (
@@ -143,7 +143,8 @@ class CompanyTable extends PureComponent {
                                                 <TableCell className={classes.cell}> <button onClick={() => this.removeCompany(company.id)}> X </button></TableCell>
                                             </TableRow>
                                         );
-                                    })}
+                                    })
+                                }
                             </TableBody>
                         </Table>
                     </div>
@@ -157,7 +158,7 @@ class CompanyTable extends PureComponent {
 const mapStateToProps = function (state) {
     return {
         // currentUser: state.currentUser,
-        companys: state.companys
+        companys: state.companys.present
     }
 }
 

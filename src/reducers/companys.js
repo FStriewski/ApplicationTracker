@@ -2,7 +2,7 @@ import { ADD_COMPANY, FETCHED_ALL_COMPANYS, REMOVE_COMPANY} from '../actions/com
 import { BY_LANGUAGE, BY_POSAVAILABLE, BY_TERM } from '../actions/filter'
 import undoable, { distinctState } from 'redux-undo'
 
-const companysreducer = function (state = [], action) {
+const companysreducer = (state = [], action) => {
   switch (action.type) {
 
     case ADD_COMPANY:
@@ -29,4 +29,6 @@ const companysreducer = function (state = [], action) {
   }
 }
 
-export default companysreducer
+const companys = undoable(companysreducer)
+
+export default companys

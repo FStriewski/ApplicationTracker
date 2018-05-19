@@ -74,7 +74,7 @@ class CompanyList extends PureComponent {
 
 const mapStateToProps = function (state) {
   return {
-    companys: state.companys
+    companys: state.companys.present
   }
 }
 
