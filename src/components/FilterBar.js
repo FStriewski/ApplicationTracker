@@ -20,10 +20,16 @@ const styles = theme => ({
 class FilterBar extends PureComponent {
 
     handleChange = (event) => {
-
-      let filter = this.props.companys.present.filter(company => company.name.toLowerCase().includes(event.target.value.toLowerCase()) )
+        let filter = this.props.companys.present.filter(company => company.name.toLowerCase().includes        (event.target.value.toLowerCase()) )
       
-    return this.props.filterByTerm(filter)
+        return this.props.filterByTerm(filter)
+    }
+
+
+    handleBackspace = (e) => {
+        if (e.keyCode === 8) {
+
+         } 
     }
 
     render(){
@@ -33,14 +39,13 @@ class FilterBar extends PureComponent {
             <form>
                 <FormControl className={classes.formControl}>
                     <InputLabel htmlFor="search-term">By Name</InputLabel>
-                        <Input id="search-term" name="name" autoComplete="off" onChange={this.handleChange} />
+                        <Input id="search-term" name="name" autoComplete="off" onChange={this.handleChange} onKeyDown={this.handleBackspace}/>
                 </FormControl>
                 </form>
             </div>
         )
     }
 }
-
 
 const mapStateToProps = (state) => ({
         companys: state.companys
