@@ -1,4 +1,6 @@
 import React, { PureComponent } from 'react'
+import { ActionCreators as UndoActionCreators } from 'redux-undo'
+
 import { connect } from 'react-redux'
 import { withStyles } from 'material-ui/styles';
 import * as combine from "lodash/fp/compose"
@@ -27,10 +29,14 @@ class FilterBar extends PureComponent {
 
 
     handleBackspace = (e) => {
-        if (e.keyCode === 8) {
-
+        if (e.keyCode === 8 && this.props.companys.past.length > 1) {
+            console.log("test")
+            // Not working correctly
+            UndoActionCreators.undo()
          } 
     }
+
+
 
     render(){
         const { companys, classes } = this.props
@@ -39,7 +45,7 @@ class FilterBar extends PureComponent {
             <form>
                 <FormControl className={classes.formControl}>
                     <InputLabel htmlFor="search-term">By Name</InputLabel>
-                        <Input id="search-term" name="name" autoComplete="off" onChange={this.handleChange} onKeyDown={this.handleBackspace}/>
+                        <Input id="search-term" name="name" autoComplete="off" onChange={this.handleChange} onKeyDown={this.handleBackspace }/>
                 </FormControl>
                 </form>
             </div>
@@ -54,5 +60,5 @@ const mapStateToProps = (state) => ({
 
 export default combine(
     withStyles(styles),
-    connect(mapStateToProps, { filterByTerm })
+    connect(mapStateToProps, { UndoActionCreators, filterByTerm })
 )(FilterBar)
