@@ -21,7 +21,7 @@ class FilterBar extends PureComponent {
 
     handleChange = (event) => {
 
-      let filter = this.props.companys.filter(company => company.name.toLowerCase().includes(event.target.value.toLowerCase()) )
+      let filter = this.props.companys.present.filter(company => company.name.toLowerCase().includes(event.target.value.toLowerCase()) )
       
     return this.props.filterByTerm(filter)
     }
