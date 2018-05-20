@@ -10,12 +10,16 @@ class Slider extends React.Component {
     
 
     onSliderChange = (e) => {
-        // console.log(e.target.value)
         this.setState({ sliderValue: e.target.value });
-        this.filterByScore(e.target.value)
+        
+        const selection = this.props.companys.present.filter(company => company.score >= e.target.value )
+        console.log("selection:   " + selection)
+
+       // this.filterByScore(selection)
     }
 
     render() {
+        console.log(this.props.companys.present)
         return (
             <div>
                 <span class="range-slider__value">{this.state.sliderValue}</span>
@@ -27,11 +31,11 @@ class Slider extends React.Component {
     }
 }
 
-// const mapStateToProps = (state) => ({
-//     companys: state.companys
-// })
+const mapStateToProps = (state) => ({
+    companys: state.companys
+})
 
 
-export default connect(null, { filterByScore })(Slider)
+export default connect(mapStateToProps, { filterByScore })(Slider)
 
 

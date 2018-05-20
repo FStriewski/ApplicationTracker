@@ -1,5 +1,5 @@
 import { ADD_COMPANY, FETCHED_ALL_COMPANYS, REMOVE_COMPANY} from '../actions/company'
-import { BY_LANGUAGE, BY_POSAVAILABLE, BY_TERM , UNDO} from '../actions/filter'
+import { BY_LANGUAGE, BY_POSAVAILABLE, BY_TERM, BY_SCORE, UNDO} from '../actions/filter'
 
 
 // Reducer enhancer by redux recipe;
@@ -67,6 +67,9 @@ const companysreducer = (state = [], action) => {
 
     case UNDO:
       return  state
+
+    case BY_SCORE:
+      return action.payload 
 
     default:
       return state
