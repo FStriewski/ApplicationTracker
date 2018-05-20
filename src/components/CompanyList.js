@@ -44,7 +44,7 @@ class CompanyList extends PureComponent {
       <Paper className={classes.root}>
         <ExpansionPanel className={classes.expansion}>
           <ExpansionPanelSummary expandIcon={<ExpandMoreIcon />}>
-            <Typography className={classes.heading}>({companys.length} found) -- Add more...</Typography>
+            {/* <Typography className={classes.heading}>({companys.length} found) -- Add more...</Typography> */}
           </ExpansionPanelSummary>
           {/* <ExpansionPanelDetails> */}
             <Typography>
