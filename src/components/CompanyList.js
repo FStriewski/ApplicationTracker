@@ -2,7 +2,7 @@ import React, {PureComponent} from 'react'
 import PropTypes from 'prop-types'
 import LogOutPage from './userHandling/LogOutPage'
 import {connect} from 'react-redux'
-import { fetchAllCompanys} from '../actions/company'
+import { fetchAllCompanys, createCompany} from '../actions/company'
 
 import CompanyForm from './CompanyForm'
 import { withStyles } from 'material-ui/styles';
@@ -37,6 +37,10 @@ class CompanyList extends PureComponent {
     this.props.fetchAllCompanys()
   }
 
+  handleSubmit = (company) => {
+    this.props.createCompany(company)
+  } 
+
   render() {
     const {companys, classes} = this.props
     return (
@@ -44,11 +48,11 @@ class CompanyList extends PureComponent {
       <Paper className={classes.root}>
         <ExpansionPanel className={classes.expansion}>
           <ExpansionPanelSummary expandIcon={<ExpandMoreIcon />}>
-            {/* <Typography className={classes.heading}>({companys.length} found) -- Add more...</Typography> */}
+            <Typography className={classes.heading}>({companys.length} found) -- Add more...</Typography>
           </ExpansionPanelSummary>
           {/* <ExpansionPanelDetails> */}
             <Typography>
-              <CompanyForm onSubmit={this.createCompany} />
+              <CompanyForm onSubmit={this.handleSubmit} />
           </Typography>
           {/* </ExpansionPanelDetails> */}
         </ExpansionPanel>
@@ -80,5 +84,5 @@ const mapStateToProps = function (state) {
 
 export default combine(
   withStyles(styles),
-  connect(mapStateToProps, { fetchAllCompanys })
+  connect(mapStateToProps, { fetchAllCompanys, createCompany })
 )(CompanyList)

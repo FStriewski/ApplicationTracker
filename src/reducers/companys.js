@@ -17,7 +17,7 @@ function undoable(reducer) {
 
     switch (action.type) {
       case 'UNDO':
-        const previous = past[past.length - 1]
+        const previous = past[past.length - 2]
         const newPast = past.slice(0, past.length - 1)
         return {
           past: newPast,
@@ -66,7 +66,6 @@ const companysreducer = (state = [], action) => {
       return state.filter(company => company.id !== action.payload)
 
     case UNDO:
-   console.log("companys:   "+ JSON.stringify(state))
       return  state
 
     default:

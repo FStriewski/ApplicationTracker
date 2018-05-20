@@ -140,7 +140,7 @@ class CompanyTable extends PureComponent {
                                                 <TableCell className={classes.cell}>{company.score}</TableCell>
                                                 <TableCell className={classes.cell}>{company.applied}</TableCell>
                                                 <TableCell className={classes.cell}><a href={company.link} target="_blank">Link</a></TableCell>
-                                                <TableCell className={classes.cell}> <button onClick={() => this.removeCompany(company.id)}> X </button></TableCell>
+                                                <TableCell className={classes.cell}> <button onClick={() => this.props.removeCompany(company.id)}> X </button></TableCell>
                                             </TableRow>
                                         );
                                     })

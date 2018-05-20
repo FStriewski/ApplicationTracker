@@ -29,7 +29,7 @@ class FilterBar extends PureComponent {
 
 
     handleBackspace = (e) => {
-        if (e.keyCode === 8 && this.props.companys.past.length > 1) {
+        if (e.keyCode === 8 && this.props.companys.past.length > 0) {
            return this.props.undo()
          }
          return 
