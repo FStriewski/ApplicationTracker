@@ -26,7 +26,7 @@ const styles = theme => ({
     height: "80%",
   },
   expansion: {
-    backgroundColor:"#f2f2f2" 
+    backgroundColor:"#f2f2f2", 
   }
 });
 
