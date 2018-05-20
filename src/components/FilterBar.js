@@ -1,7 +1,6 @@
 import React, { PureComponent } from 'react'
 import { UndoActionCreators } from 'redux-undo';
 import Slider from './Slider'
-
 import { connect } from 'react-redux'
 import { withStyles } from 'material-ui/styles';
 import * as combine from "lodash/fp/compose"
@@ -22,8 +21,13 @@ const styles = theme => ({
         // flexWrap: 'wrap',
     },
     slider: {
-
+        marginLeft: 20,
+        width: 200,
     },
+    formControl: {
+        width: 200,
+        marginBottom: 10,
+    }
 });
 
 
@@ -54,8 +58,9 @@ class FilterBar extends PureComponent {
                 </FormControl>
             </form>
 
+                <div className={classes.slider}>
             <Slider />
-
+</div>
             </div>
         )
     }
