@@ -1,5 +1,6 @@
 import React, { PureComponent } from 'react'
 import { UndoActionCreators } from 'redux-undo';
+import Slider from './Slider'
 
 import { connect } from 'react-redux'
 import { withStyles } from 'material-ui/styles';
@@ -16,13 +17,20 @@ const styles = theme => ({
         marginTop: theme.spacing.unit * 1,
         overflowX: 'auto',
     },
+    container: {
+         display: 'flex',
+        // flexWrap: 'wrap',
+    },
+    slider: {
+
+    },
 });
 
 
 class FilterBar extends PureComponent {
 
-    handleChange = (event) => {
-        let filter = this.props.companys.present.filter(company => company.name.toLowerCase().includes        (event.target.value.toLowerCase()) )
+    handleChange = (e) => {
+        let filter = this.props.companys.present.filter(company => company.name.toLowerCase().includes        (e.target.value.toLowerCase()) )
       
         return this.props.filterByTerm(filter)
     }
@@ -35,17 +43,19 @@ class FilterBar extends PureComponent {
          return 
     }
 
-
     render(){
         const { companys, classes } = this.props
         return (
-            <div>
+            <div className={classes.container}>
             <form>
                 <FormControl className={classes.formControl}>
                     <InputLabel htmlFor="search-term">By Name</InputLabel>
                         <Input id="search-term" name="name" autoComplete="off" onChange={this.handleChange} onKeyDown={this.handleBackspace }/>
                 </FormControl>
-                </form>
+            </form>
+
+            <Slider />
+
             </div>
         )
     }
