@@ -10,6 +10,9 @@ const styles = theme => ({
 	root: {
 		width: '90%',
 	},
+	form: {
+		backgroundColor: "#f2f2f2",
+	},
 	backButton: {
 		marginRight: theme.spacing.unit,
 	},
@@ -81,7 +84,7 @@ class CompanyForm extends React.Component {
 
 		return (
 			
-				<form onSubmit={this.handleSubmit}>
+				<form onSubmit={this.handleSubmit} className={classes.form}>
 			
 					<FormControl className={classes.formControl}>
 						<InputLabel htmlFor="company-title">Name</InputLabel>
