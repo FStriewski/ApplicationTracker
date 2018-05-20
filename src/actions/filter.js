@@ -1,6 +1,9 @@
+
+
 export const BY_LANGUAGE = "BY_LANGUAGE"
 export const BY_POSAVAILABLE = "BY_POSAVAILABLE"
 export const BY_TERM = "BY_TERM"
+export const UNDO = "UNDO"
 
 export const filterByLanguage = (selection) => ({
     type: BY_LANGUAGE,
@@ -17,6 +20,10 @@ export const filterByTerm = (selection) => ({
     payload: selection,
 })
 
+export const undo = () => ({
+    type: UNDO,
+    payload: "",
 
+})
 
 

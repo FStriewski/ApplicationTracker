@@ -1,8 +1,11 @@
 import { ADD_COMPANY, FETCHED_ALL_COMPANYS, REMOVE_COMPANY} from '../actions/company'
-import { BY_LANGUAGE, BY_POSAVAILABLE, BY_TERM } from '../actions/filter'
+import { BY_LANGUAGE, BY_POSAVAILABLE, BY_TERM , UNDO} from '../actions/filter'
 import undoable, { distinctState } from 'redux-undo'
 
 const companysreducer = (state = [], action) => {
+
+  const { past, present, future } = state
+
   switch (action.type) {
 
     case ADD_COMPANY:
@@ -23,6 +26,15 @@ const companysreducer = (state = [], action) => {
 
      case REMOVE_COMPANY:
       return state.filter(company => company.id !== action.payload)
+
+    case UNDO:
+      const previous = past[past.length - 1]
+      const newPast = past.slice(0, past.length - 1)
+      return {
+        past: newPast,
+        present: previous,
+        future: [present, ...future]
+      }
 
     default:
       return state

@@ -1,10 +1,10 @@
 import React, { PureComponent } from 'react'
-import { ActionCreators as UndoActionCreators } from 'redux-undo'
+import { UndoActionCreators } from 'redux-undo';
 
 import { connect } from 'react-redux'
 import { withStyles } from 'material-ui/styles';
 import * as combine from "lodash/fp/compose"
-import { filterByTerm } from '../actions/filter'
+import { filterByTerm, undo } from '../actions/filter'
 import { FormControl } from 'material-ui/Form';
 import Input, { InputLabel } from 'material-ui/Input';
 
@@ -32,7 +32,7 @@ class FilterBar extends PureComponent {
         if (e.keyCode === 8 && this.props.companys.past.length > 1) {
             console.log("test")
             // Not working correctly
-            UndoActionCreators.undo()
+            this.props.undo()
          } 
     }
 
@@ -60,5 +60,5 @@ const mapStateToProps = (state) => ({
 
 export default combine(
     withStyles(styles),
-    connect(mapStateToProps, { UndoActionCreators, filterByTerm })
+    connect(mapStateToProps, { filterByTerm, undo})
 )(FilterBar)
