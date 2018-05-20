@@ -20,23 +20,23 @@ const styles = theme => ({
 	container: {
 		display: 'flex',
 		flexWrap: 'wrap',
-		backgroundColor: "white",
 	},
 	formControl: {
 		margin: theme.spacing.unit,
 	},
 	formControlPicker: {
 		margin: theme.spacing.unit,
-		width: "10%",
+		width: "10%"
+		
 	},
 	formControlComments: {
 		margin: theme.spacing.unit,
-		width: "20%",
+	
 	},
 	button: {
 		color: "#711F9B",
-		backgroundColor: "white",
-		marginTop: 10,
+		// backgroundColor: "white",
+		marginBottom: 10,
 	},
 });
 
@@ -80,9 +80,9 @@ class CompanyForm extends React.Component {
 		const initialValues = this.props.initialValues || ''
 
 		return (
-			<div className={classes.container}>
+			
 				<form onSubmit={this.handleSubmit}>
-				<div>
+			
 					<FormControl className={classes.formControl}>
 						<InputLabel htmlFor="company-title">Name</InputLabel>
 						<Input id="company-title" name="name" value={this.state.name || initialValues.name || ''} onChange={this.handleChange} />
@@ -146,7 +146,7 @@ class CompanyForm extends React.Component {
 							<MenuItem value={10}>10</MenuItem>
 						</Select>
 						</FormControl>
-				</div>
+			
 				<div>
 					<FormControl className={classes.formControl}>
 						<InputLabel htmlFor="company-market">Market</InputLabel>
@@ -162,14 +162,12 @@ class CompanyForm extends React.Component {
 							<InputLabel htmlFor="company-comments">Comments</InputLabel>
 							<Input id="company-comments" name="comments" value={this.state.comments || initialValues.comments || ''} onChange={this.handleChange} />
 						</FormControl>
-				</div>
-				<div>
-					<Button variant="raised" size="medium" type="submit" className={classes.button}>
-						Save
+					<Button size="medium" type="submit" className={classes.button}>
+						Submit
 					</Button>
 				</div>
 				</form>
-			</div>
+			
 		);
 	}
 }
