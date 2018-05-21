@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import {connect} from 'react-redux'
 import { fetchCompany, updateCompany} from '../actions/company'
 import { Link } from 'react-router-dom'
@@ -40,6 +41,24 @@ const styles = {
 // function CompanyDetails(props) {
   class CompanyDetails extends React.Component {
 
+    static propTypes = {
+      company: PropTypes.shape({
+        id: PropTypes.number.isRequired,
+        name: PropTypes.string.isRequired,
+        market: PropTypes.string,
+        focus: PropTypes.string,
+        score: PropTypes.number.isRequired,
+        language: PropTypes.oneOf(['INT', 'NL']),
+        applied: PropTypes.oneOf(['y', 'n']),
+        link: PropTypes.string.isRequired,
+        comments: PropTypes.string,
+      }).isRequired,
+
+      fetchCompany: PropTypes.func.isRequired,
+      updateCompany: PropTypes.func.isRequired,
+
+    }
+
   state = {
     edit: false
   }
@@ -50,8 +69,8 @@ const styles = {
     })
   }
 
-  updateCompany = (Company) => {
-    this.props.updateCompany(this.props.match.params.id, Company)
+  updateCompany = (company) => {
+    this.props.updateCompany(this.props.match.params.id, company)
     this.toggleEdit()
   }
 
@@ -61,7 +80,7 @@ const styles = {
 
 
   render() {
-    const { company,classes } = this.props
+    const { company, classes } = this.props
     if (!company) return null
 
   return (
@@ -98,15 +117,6 @@ const styles = {
     </div>
   );
 }
-
-//    propTypes = {
-//   Company: PropTypes.arrayOf(PropTypes.shape({
-//     id: PropTypes.number.isRequired,
-//     name: PropTypes.string.isRequired,
-//     price: PropTypes.number.isRequired,
-//     description: PropTypes.string.isRequired
-//   })).isRequired
-// }
 
 }
 

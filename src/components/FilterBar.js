@@ -1,5 +1,5 @@
 import React, { PureComponent } from 'react'
-import { UndoActionCreators } from 'redux-undo';
+import PropTypes from 'prop-types'
 import Slider from './Slider'
 import { connect } from 'react-redux'
 import { withStyles } from 'material-ui/styles';
@@ -7,7 +7,6 @@ import * as combine from "lodash/fp/compose"
 import { filterByTerm, undo } from '../actions/filter'
 import { FormControl } from 'material-ui/Form';
 import Input, { InputLabel } from 'material-ui/Input';
-
 
 
 const styles = theme => ({
@@ -18,7 +17,6 @@ const styles = theme => ({
     },
     container: {
          display: 'flex',
-        // flexWrap: 'wrap',
     },
     slider: {
         marginLeft: 20,
@@ -32,6 +30,22 @@ const styles = theme => ({
 
 
 class FilterBar extends PureComponent {
+    static propTypes = {
+        companys: PropTypes.arrayOf(PropTypes.shape({
+            id: PropTypes.number.isRequired,
+            name: PropTypes.string.isRequired,
+            market: PropTypes.string,
+            focus: PropTypes.string,
+            score: PropTypes.number.isRequired,
+            language: PropTypes.oneOf(['INT', 'NL']),
+            applied: PropTypes.oneOf(['y', 'n']),
+            link: PropTypes.string.isRequired,
+            comments: PropTypes.string,
+        })).isRequired,
+
+        filterByTerm: PropTypes.func.isRequired,
+        undo: PropTypes.func.isRequired,
+    }
 
     handleChange = (e) => {
         let filter = this.props.companys.present.filter(company => company.name.toLowerCase().includes        (e.target.value.toLowerCase()) )

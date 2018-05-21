@@ -1,9 +1,7 @@
 import React, {PureComponent} from 'react'
 import PropTypes from 'prop-types'
-import LogOutPage from './userHandling/LogOutPage'
 import {connect} from 'react-redux'
 import { fetchAllCompanys, createCompany} from '../actions/company'
-
 import CompanyForm from './CompanyForm'
 import { withStyles } from 'material-ui/styles';
 import Paper from 'material-ui/Paper';
@@ -32,6 +30,22 @@ const styles = theme => ({
 
 
 class CompanyList extends PureComponent {
+  static propTypes = {
+    companys: PropTypes.arrayOf(PropTypes.shape({
+      id: PropTypes.number.isRequired,
+      name: PropTypes.string.isRequired,
+      market: PropTypes.string,
+      focus: PropTypes.string,
+      score: PropTypes.number.isRequired,
+      language: PropTypes.oneOf(['INT', 'NL']),
+      applied: PropTypes.oneOf(['y', 'n']),
+      link: PropTypes.string.isRequired,
+      comments: PropTypes.string,
+    })).isRequired,
+
+    fetchAllCompany: PropTypes.func.isRequired,
+    createCompany: PropTypes.func.isRequired,
+  }
 
   componentWillMount() {
     this.props.fetchAllCompanys()
@@ -45,32 +59,32 @@ class CompanyList extends PureComponent {
     const {companys, classes} = this.props
     return (
       <div id="companyListWrapper">
-      <Paper className={classes.root}>
-        <ExpansionPanel className={classes.expansion}>
-          <ExpansionPanelSummary expandIcon={<ExpandMoreIcon />}>
-            <Typography className={classes.heading}>  Add more...</Typography>
-          </ExpansionPanelSummary>
-          {/* <ExpansionPanelDetails> */}
+        <Paper className={classes.root}>
+          <ExpansionPanel className={classes.expansion}>
+            <ExpansionPanelSummary expandIcon={<ExpandMoreIcon />}>
+              <Typography className={classes.heading}>  Add more...</Typography>
+            </ExpansionPanelSummary>
+            {/* <ExpansionPanelDetails> */}
             <Typography>
               <CompanyForm onSubmit={this.handleSubmit} />
-          </Typography>
-          {/* </ExpansionPanelDetails> */}
-        </ExpansionPanel>
+            </Typography>
+            {/* </ExpansionPanelDetails> */}
+          </ExpansionPanel>
 
-        <ExpansionPanel className={classes.expansion}>
-          <ExpansionPanelSummary expandIcon={<ExpandMoreIcon />}>
-              <Typography className={classes.heading}>Filter - ({companys.length} found) </Typography>
-          </ExpansionPanelSummary>
-          <ExpansionPanelDetails>
-            <Typography>
+          <ExpansionPanel className={classes.expansion}>
+            <ExpansionPanelSummary expandIcon={<ExpandMoreIcon />}>
+              <Typography className={classes.heading}>Filter - [<b>{companys.length}</b> found] </Typography>
+            </ExpansionPanelSummary>
+            <ExpansionPanelDetails>
+              <Typography>
                 <FilterBar />
-          </Typography>
-          </ExpansionPanelDetails>
-        </ExpansionPanel>
+              </Typography>
+            </ExpansionPanelDetails>
+          </ExpansionPanel>
 
-      <CompanyTable />
-    
-      </Paper>
+          <CompanyTable />
+
+        </Paper>
       </div>
     )
   }

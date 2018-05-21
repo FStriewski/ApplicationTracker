@@ -175,7 +175,6 @@ class CompanyForm extends React.Component {
 	}
 }
 
-
 export default withStyles(styles)(CompanyForm);
 
 

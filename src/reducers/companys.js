@@ -43,7 +43,7 @@ function undoable(reducer) {
 
 const companysreducer = (state = [], action) => {
 
- const { past, present, future } = state
+  const { past, present, future } = state
 
   switch (action.type) {
 
@@ -54,22 +54,22 @@ const companysreducer = (state = [], action) => {
       return action.payload
 
     case BY_LANGUAGE:
-      return action.payload 
+      return action.payload
 
     case BY_POSAVAILABLE:
-      return action.payload 
+      return action.payload
 
     case BY_TERM:
       return action.payload
 
-     case REMOVE_COMPANY:
+    case REMOVE_COMPANY:
       return state.filter(company => company.id !== action.payload)
 
     case UNDO:
-      return  state
+      return state
 
     case BY_SCORE:
-      return action.payload 
+      return action.payload
 
     default:
       return state

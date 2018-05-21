@@ -17,7 +17,6 @@ const styles = theme => ({
     table: {
         minWidth: 700,
         height: "80%"
-        // textAlign: "center", 
     },
     header: {
         borderColor: "#454154",
@@ -46,11 +45,23 @@ const styles = theme => ({
 
 class CompanyTable extends PureComponent {
     static propTypes = {
-        Companys: PropTypes.arrayOf(PropTypes.shape({
+        companys: PropTypes.arrayOf(PropTypes.shape({
             id: PropTypes.number.isRequired,
             name: PropTypes.string.isRequired,
-            price: PropTypes.number.isRequired
-        })).isRequired
+            market: PropTypes.string,
+            focus: PropTypes.string,
+            score: PropTypes.number.isRequired,
+            language: PropTypes.oneOf(['INT','NL']),
+            applied: PropTypes.oneOf(['y', 'n']),
+            link: PropTypes.string.isRequired,
+            comments: PropTypes.string,
+        })).isRequired,
+
+        fetchAllCompany: PropTypes.func.isRequired,
+        removeCompany: PropTypes.func.isRequired,
+        createCompany: PropTypes.func.isRequired,
+        filterByLanguage: PropTypes.func.isRequired,
+        filterByPosition: PropTypes.func.isRequired,
     }
 
     state = {
