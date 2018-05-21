@@ -14,10 +14,6 @@ import Button from 'material-ui/Button';
 
 
 const styles = theme => ({
-    table: {
-        minWidth: 700,
-        height: "80%"
-    },
     header: {
         borderColor: "#454154",
         color: "#454154",
@@ -117,9 +113,7 @@ class CompanyTable extends PureComponent {
     render() {
         const { companys, classes } = this.props
         return (
-            <div id="companyTableWrapper">
                 <Paper className={classes.root}>
-
                     <div className={classes.table}>
                         <Table >
                             <TableHead >
@@ -160,7 +154,7 @@ class CompanyTable extends PureComponent {
                         </Table>
                     </div>
                 </Paper >
-            </div >
+           
         )
     }
 }
