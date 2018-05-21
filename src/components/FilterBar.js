@@ -1,6 +1,7 @@
 import React, { PureComponent } from 'react'
 import PropTypes from 'prop-types'
 import Slider from './filter/Slider'
+import Language from './filter/Language'
 import Term from './filter/Term'
 import { connect } from 'react-redux'
 import { withStyles } from 'material-ui/styles';
@@ -31,6 +32,9 @@ const styles = theme => ({
 
                 <div className={classes.slider}>
                     <Slider />
+                </div>
+                <div className={classes.language}>
+                    <Language />
                 </div>
             </div>
         )
