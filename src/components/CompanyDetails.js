@@ -15,6 +15,8 @@ const styles = {
   card: {
     maxWidth: 345,
     margin: '3%',
+    marginLeft: "35%",
+    marginRight: "35%"
   },
   media: {
     height: 0,
@@ -29,13 +31,15 @@ const styles = {
     textAlign: "center",
   },
   icon: {
-    color: "#B16F9B",
     paddingTop: "5%",
     marginLeft: "35%",
     marginRight: "35%",
     height: "100px",
     width: "30%",
   },
+  content: {
+    textAlign: "center",
+  }
 };
 
 // function CompanyDetails(props) {
@@ -85,7 +89,6 @@ const styles = {
 
   return (
     <div>      {/* In edit mode display: */}
-      <Link to="/Companys">Back </Link>
       {
         this.state.edit &&
         <CompanyForm initialValues={company} onSubmit={this.updateCompany} />
@@ -94,23 +97,25 @@ const styles = {
         !this.state.edit && company &&
         <Card className={classes.card}>
           <CardMedia>
-            <Domain className={classes.icon}/>
+            {/* <Domain className={classes.icon}/> */}
+            <img className={classes.icon} src='/company.png' alt="CompanyLogo" />
             </CardMedia>
 
           <CardContent>
             <Typography gutterBottom variant="headline" component="h2" className={classes.headline}>
                 {company.name}
             </Typography>
-            <Typography component="p">
-            <p>Deals with: <b>{company.market}</b></p>
-                <p>Focusses on: {company.focus}</p>
-                <p>Interesting? {company.score} /10 </p>
-                <p><i> {company.comments} </i></p>
+            <Typography component="p" className={classes.content}>
+             <b>{company.market}</b>
+              <p>Focusses on: {company.focus}</p>
+              <p>Comments<i> {company.comments} </i></p>
               <a href={company.link}>Website</a>
+              <h3> {company.score} /10 </h3>
             </Typography>
           </CardContent>
-            <div className={classes.button}>
-              <Button className={classes.button} onClick={this.toggleEdit}> Edit </Button>
+          <div className={classes.button}>
+            <Button className={classes.button} onClick={this.toggleEdit}> Edit </Button>
+            <Button className={classes.button} onClick={this.toggleEdit}> <Link to="/Companys">Back </Link> </Button>
           </div>
         </Card>
       }
