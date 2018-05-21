@@ -21,8 +21,8 @@ const styles = theme => ({
 		marginBottom: theme.spacing.unit,
 	},
 	container: {
-		display: 'flex',
-		flexWrap: 'wrap',
+		// display: 'flex',
+		// flexWrap: 'wrap',
 	},
 	formControl: {
 		margin: theme.spacing.unit,

@@ -17,6 +17,7 @@ const styles = theme => ({
     formControl: {
         width: 200,
         marginBottom: 10,
+        marginLeft: 40,
     }
 });
 

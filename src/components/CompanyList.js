@@ -77,11 +77,9 @@ class CompanyList extends PureComponent {
             <ExpansionPanelSummary expandIcon={<ExpandMoreIcon />}>
               <Typography className={classes.heading}>Filter - [<b>{companys.length}</b> found] </Typography>
             </ExpansionPanelSummary>
-            <ExpansionPanelDetails>
-              <Typography>
+  
                 <FilterBar />
-              </Typography>
-            </ExpansionPanelDetails>
+ 
           </ExpansionPanel>
 
           <div className={classes.table}>

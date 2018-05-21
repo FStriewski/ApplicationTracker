@@ -8,13 +8,10 @@ import { fetchAllCompanys } from '../../actions/company'
 
 const styles = theme => ({
     sliderContainer: {
-        marginLeft: 10,
         marginTop: 10,
+        marginLeft: -50,
         width: "100%",
     },
-    slider: {
-        width: "100%",
-    }
 });
 
 class Slider extends React.Component {

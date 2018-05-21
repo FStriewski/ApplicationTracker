@@ -14,8 +14,7 @@ import Switch from '@material-ui/core/Switch';
 
 const styles = theme => ({
     languageContainer: {
-        marginLeft: 40,
-        marginTop: 10,
+        marginLeft: -100,
         width: "100%",
     },
 });

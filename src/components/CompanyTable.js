@@ -66,7 +66,7 @@ class CompanyTable extends PureComponent {
     render() {
         const { companys, classes } = this.props
         return (
-            <Paper className={classes.root}>
+            <Paper >
                 <div className={classes.table}>
                     <Table >
                         <TableHead >

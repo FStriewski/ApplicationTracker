@@ -11,11 +11,11 @@ import { FormControl } from 'material-ui/Form';
 import Table, { TableBody, TableCell, TableHead, TableRow } from 'material-ui/Table';
 
 
+
 const styles = theme => ({
-    container: {
-         display: 'flex',
-         width: "100%",
-        fontSize: 14,
+    filtertable: {
+
+
     },
     slider: {
         marginLeft: 20,
@@ -25,57 +25,43 @@ const styles = theme => ({
         borderColor: "#454154",
         backgroundColor: "white",
         color: "#454154",
-        fontSize: 15,
+        fontSize: 12,
     },
 });
 
 
- class FilterBar extends PureComponent {
-   
-    render(){
+class FilterBar extends PureComponent {
+
+    render() {
         const { classes } = this.props
         return (
-             <div className={classes.container}>
-                 {/* <Term />
+            <div className={classes.filtertable}>
 
-                <div className={classes.slider}>
-                    <Slider />
-                </div>
-                <div className={classes.language}>
-                    <Language />
-                </div>
-                <div className={classes.positions}>
-                    <Positions />
-                </div> */}
+                < Table >
+                    <TableHead >
 
 
+                        <TableCell className={classes.header}>#</TableCell>
+                        <TableCell className={classes.header}><Term /></TableCell>
+                        <TableCell className={classes.header}>
+                            <Language />
+                        </TableCell>
+                        <TableCell className={classes.header}><Slider /></TableCell>
+                        <TableCell className={classes.header}>
+                            <Positions />
+                        </TableCell>
+                        <TableCell className={classes.header}> </TableCell>
+                        <TableCell className={classes.header}></TableCell>
 
 
-                 < Table >
-                     <TableHead >
-                         
+                    </TableHead>
+                </Table >
 
-                             <TableCell className={classes.header}>#</TableCell>
-                             <TableCell className={classes.header}>Name</TableCell>
-                             <TableCell className={classes.header}>
-                                 Language
-            </TableCell>
-                             <TableCell className={classes.header}>Score</TableCell>
-                             <TableCell className={classes.header}>
-                                 Positions
-            </TableCell>
-                             <TableCell className={classes.header}>Link </TableCell>
-                             <TableCell className={classes.header}>Remove</TableCell>
+            </div>
+        )
+    }
+}
 
-                         
-                     </TableHead>
-                 </Table >
-
-             </div>
-         )
-     }
- }
-        
-                export default combine(
-                withStyles(styles),
+export default combine(
+    withStyles(styles),
 )(FilterBar)
