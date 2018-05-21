@@ -1,11 +1,9 @@
 import React, { PureComponent } from 'react'
 import PropTypes from 'prop-types'
-import Slider from './filter/Slider'
-import Term from './filter/Term'
 import { connect } from 'react-redux'
 import { withStyles } from 'material-ui/styles';
 import * as combine from "lodash/fp/compose"
-import { filterByTerm, undo } from '../actions/filter'
+import { filterByTerm, undo } from '../../actions/filter'
 import { FormControl } from 'material-ui/Form';
 import Input, { InputLabel } from 'material-ui/Input';
 
@@ -15,13 +13,6 @@ const styles = theme => ({
         width: '100%',
         marginTop: theme.spacing.unit * 1,
         overflowX: 'auto',
-    },
-    container: {
-         display: 'flex',
-    },
-    slider: {
-        marginLeft: 20,
-        width: 200,
     },
     formControl: {
         width: 200,
@@ -49,39 +40,39 @@ class FilterBar extends PureComponent {
     }
 
     handleChange = (e) => {
-        let filter = this.props.companys.present.filter(company => company.name.toLowerCase().includes        (e.target.value.toLowerCase()) )
-      
+        let filter = this.props.companys.present.filter(company => company.name.toLowerCase().includes(e.target.value.toLowerCase()))
+
         return this.props.filterByTerm(filter)
     }
 
 
     handleBackspace = (e) => {
         if (e.keyCode === 8 && this.props.companys.past.length > 0) {
-           return this.props.undo()
-         }
-         return 
+            return this.props.undo()
+        }
+        return
     }
 
-    render(){
+    render() {
         const { companys, classes } = this.props
         return (
-            <div className={classes.container}>
-                <Term />
 
-                <div className={classes.slider}>
-                    <Slider />
-                </div>
-            </div>
+                <form>
+                    <FormControl className={classes.formControl}>
+                        <InputLabel htmlFor="search-term">By Name</InputLabel>
+                        <Input id="search-term" name="name" autoComplete="off" onChange={this.handleChange} onKeyDown={this.handleBackspace} />
+                    </FormControl>
+                </form>
         )
     }
 }
 
 const mapStateToProps = (state) => ({
-        companys: state.companys
-    })
+    companys: state.companys
+})
 
 
 export default combine(
     withStyles(styles),
-    connect(mapStateToProps, { filterByTerm, undo})
+    connect(mapStateToProps, { filterByTerm, undo })
 )(FilterBar)

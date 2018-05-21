@@ -1,9 +1,9 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { filterByScore } from '../actions/filter'
+import { filterByScore } from '../../actions/filter'
 import { withStyles } from 'material-ui/styles';
 import * as combine from "lodash/fp/compose"
-import { fetchAllCompanys } from '../actions/company'
+import { fetchAllCompanys } from '../../actions/company'
 
 
 const styles = theme => ({
@@ -55,7 +55,7 @@ const mapStateToProps = (state) => ({
 
 export default combine(
     withStyles(styles),
-     connect(mapStateToProps, { filterByScore, fetchAllCompanys })
-    )(Slider)
+    connect(mapStateToProps, { filterByScore, fetchAllCompanys })
+)(Slider)
 
 

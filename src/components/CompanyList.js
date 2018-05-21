@@ -1,7 +1,7 @@
-import React, {PureComponent} from 'react'
+import React, { PureComponent } from 'react'
 import PropTypes from 'prop-types'
-import {connect} from 'react-redux'
-import { fetchAllCompanys, createCompany} from '../actions/company'
+import { connect } from 'react-redux'
+import { fetchAllCompanys, createCompany } from '../actions/company'
 import CompanyForm from './CompanyForm'
 import { withStyles } from 'material-ui/styles';
 import Paper from 'material-ui/Paper';
@@ -23,10 +23,10 @@ const styles = theme => ({
     overflowX: 'auto',
   },
   expansion: {
-    backgroundColor:"#f2f2f2", 
+    backgroundColor: "#f2f2f2",
   },
   table: {
-    height: 400, 
+    height: 400,
   },
 });
 
@@ -55,10 +55,10 @@ class CompanyList extends PureComponent {
 
   handleSubmit = (company) => {
     this.props.createCompany(company)
-  } 
+  }
 
   render() {
-    const {companys, classes} = this.props
+    const { companys, classes } = this.props
     return (
       <div id="companyListWrapper">
         <Paper className={classes.root}>
@@ -84,8 +84,8 @@ class CompanyList extends PureComponent {
             </ExpansionPanelDetails>
           </ExpansionPanel>
 
-          <div className={classes.table}> 
-          <CompanyTable />
+          <div className={classes.table}>
+            <CompanyTable />
           </div>
 
         </Paper>

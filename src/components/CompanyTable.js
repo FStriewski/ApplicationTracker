@@ -47,7 +47,7 @@ class CompanyTable extends PureComponent {
             market: PropTypes.string,
             focus: PropTypes.string,
             score: PropTypes.number.isRequired,
-            language: PropTypes.oneOf(['INT','NL']),
+            language: PropTypes.oneOf(['INT', 'NL']),
             applied: PropTypes.oneOf(['y', 'n']),
             link: PropTypes.string.isRequired,
             comments: PropTypes.string,
@@ -113,48 +113,48 @@ class CompanyTable extends PureComponent {
     render() {
         const { companys, classes } = this.props
         return (
-                <Paper className={classes.root}>
-                    <div className={classes.table}>
-                        <Table >
-                            <TableHead >
-                                <TableRow >
+            <Paper className={classes.root}>
+                <div className={classes.table}>
+                    <Table >
+                        <TableHead >
+                            <TableRow >
 
-                                    <TableCell className={classes.header}>#</TableCell>
-                                    <TableCell className={classes.header}>Name</TableCell>
-                                    <TableCell className={classes.header}>
-                                        <Button className={classes.button} onClick={this.filterLanguage}>{this.state.filterLanguageActive ? <Visibility /> : ""}Language </Button>
-                                    </TableCell>
-                                    <TableCell className={classes.header}>Score</TableCell>
-                                    <TableCell className={classes.header}>
-                                        <Button className={classes.button} onClick={this.filterPosition}>{this.state.filterPositionActive ? <Visibility /> : ""}Jobs </Button>
-                                    </TableCell>
-                                    <TableCell className={classes.header}>Link </TableCell>
-                                    <TableCell className={classes.header}>Remove</TableCell>
+                                <TableCell className={classes.header}>#</TableCell>
+                                <TableCell className={classes.header}>Name</TableCell>
+                                <TableCell className={classes.header}>
+                                    <Button className={classes.button} onClick={this.filterLanguage}>{this.state.filterLanguageActive ? <Visibility /> : ""}Language </Button>
+                                </TableCell>
+                                <TableCell className={classes.header}>Score</TableCell>
+                                <TableCell className={classes.header}>
+                                    <Button className={classes.button} onClick={this.filterPosition}>{this.state.filterPositionActive ? <Visibility /> : ""}Jobs </Button>
+                                </TableCell>
+                                <TableCell className={classes.header}>Link </TableCell>
+                                <TableCell className={classes.header}>Remove</TableCell>
 
-                                </TableRow>
-                            </TableHead>
-                            <TableBody>
-                                {companys 
-                                    .sort((p1, p2) => (p2.score - p1.score))
-                                    .map(company => {
-                                        return (
-                                            <TableRow key={company.id}>
-                                                <TableCell className={classes.cell}>{company.id}</TableCell>
-                                                <TableCell className={classes.cell}><Link to={`/Companys/${company.id}`}>{company.name}</Link></TableCell>
-                                                <TableCell className={classes.cell}>{company.language}</TableCell>
-                                                <TableCell className={classes.cell}>{company.score}</TableCell>
-                                                <TableCell className={classes.cell}>{company.applied}</TableCell>
-                                                <TableCell className={classes.cell}><a href={company.link} target="_blank">Link</a></TableCell>
-                                                <TableCell className={classes.cell}> <button onClick={() => this.props.removeCompany(company.id)}> X </button></TableCell>
-                                            </TableRow>
-                                        );
-                                    })
-                                }
-                            </TableBody>
-                        </Table>
-                    </div>
-                </Paper >
-           
+                            </TableRow>
+                        </TableHead>
+                        <TableBody>
+                            {companys
+                                .sort((p1, p2) => (p2.score - p1.score))
+                                .map(company => {
+                                    return (
+                                        <TableRow key={company.id}>
+                                            <TableCell className={classes.cell}>{company.id}</TableCell>
+                                            <TableCell className={classes.cell}><Link to={`/Companys/${company.id}`}>{company.name}</Link></TableCell>
+                                            <TableCell className={classes.cell}>{company.language}</TableCell>
+                                            <TableCell className={classes.cell}>{company.score}</TableCell>
+                                            <TableCell className={classes.cell}>{company.applied}</TableCell>
+                                            <TableCell className={classes.cell}><a href={company.link} target="_blank">Link</a></TableCell>
+                                            <TableCell className={classes.cell}> <button onClick={() => this.props.removeCompany(company.id)}> X </button></TableCell>
+                                        </TableRow>
+                                    );
+                                })
+                            }
+                        </TableBody>
+                    </Table>
+                </div>
+            </Paper >
+
         )
     }
 }

@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import {connect} from 'react-redux'
-import { fetchCompany, updateCompany} from '../actions/company'
+import { connect } from 'react-redux'
+import { fetchCompany, updateCompany } from '../actions/company'
 import { Link } from 'react-router-dom'
 import CompanyForm from './CompanyForm'
 import * as combine from "lodash/fp/compose"
@@ -43,25 +43,25 @@ const styles = {
 };
 
 // function CompanyDetails(props) {
-  class CompanyDetails extends React.Component {
+class CompanyDetails extends React.Component {
 
-    static propTypes = {
-      company: PropTypes.shape({
-        id: PropTypes.number.isRequired,
-        name: PropTypes.string.isRequired,
-        market: PropTypes.string,
-        focus: PropTypes.string,
-        score: PropTypes.number.isRequired,
-        language: PropTypes.oneOf(['INT', 'NL']),
-        applied: PropTypes.oneOf(['y', 'n']),
-        link: PropTypes.string.isRequired,
-        comments: PropTypes.string,
-      }).isRequired,
+  static propTypes = {
+    company: PropTypes.shape({
+      id: PropTypes.number.isRequired,
+      name: PropTypes.string.isRequired,
+      market: PropTypes.string,
+      focus: PropTypes.string,
+      score: PropTypes.number.isRequired,
+      language: PropTypes.oneOf(['INT', 'NL']),
+      applied: PropTypes.oneOf(['y', 'n']),
+      link: PropTypes.string.isRequired,
+      comments: PropTypes.string,
+    }).isRequired,
 
-      fetchCompany: PropTypes.func.isRequired,
-      updateCompany: PropTypes.func.isRequired,
+    fetchCompany: PropTypes.func.isRequired,
+    updateCompany: PropTypes.func.isRequired,
 
-    }
+  }
 
   state = {
     edit: false
@@ -73,7 +73,7 @@ const styles = {
     })
   }
 
-  updateCompany = (company) => {
+ updateCompany = (company) => {
     this.props.updateCompany(this.props.match.params.id, company)
     this.toggleEdit()
   }
@@ -87,41 +87,41 @@ const styles = {
     const { company, classes } = this.props
     if (!company) return null
 
-  return (
-    <div>      {/* In edit mode display: */}
-      {
-        this.state.edit &&
-        <CompanyForm initialValues={company} onSubmit={this.updateCompany} />
-      }
-      {
-        !this.state.edit && company &&
-        <Card className={classes.card}>
-          <CardMedia>
-            {/* <Domain className={classes.icon}/> */}
-            <img className={classes.icon} src='/company.png' alt="CompanyLogo" />
+    return (
+      <div>      {/* In edit mode display: */}
+        {
+          this.state.edit &&
+          <CompanyForm initialValues={company} onSubmit={this.updateCompany} />
+        }
+        {
+          !this.state.edit && company &&
+          <Card className={classes.card}>
+            <CardMedia>
+              {/* <Domain className={classes.icon}/> */}
+              <img className={classes.icon} src='/company.png' alt="CompanyLogo" />
             </CardMedia>
 
-          <CardContent>
-            <Typography gutterBottom variant="headline" component="h2" className={classes.headline}>
+            <CardContent>
+              <Typography gutterBottom variant="headline" component="h2" className={classes.headline}>
                 {company.name}
-            </Typography>
-            <Typography component="p" className={classes.content}>
-             <b>{company.market}</b>
-              <p>Focusses on: {company.focus}</p>
-              <p>Comments<i> {company.comments} </i></p>
-              <a href={company.link}>Website</a>
-              <h3> {company.score} /10 </h3>
-            </Typography>
-          </CardContent>
-          <div className={classes.button}>
-            <Button className={classes.button} onClick={this.toggleEdit}> Edit </Button>
-            <Button className={classes.button} onClick={this.toggleEdit}> <Link to="/Companys">Back </Link> </Button>
-          </div>
-        </Card>
-      }
-    </div>
-  );
-}
+              </Typography>
+              <Typography component="p" className={classes.content}>
+                <b>{company.market}</b>
+                <p>Focusses on: {company.focus}</p>
+                <p>Comments<i> {company.comments} </i></p>
+                <a href={company.link}>Website</a>
+                <h3> {company.score} /10 </h3>
+              </Typography>
+            </CardContent>
+            <div className={classes.button}>
+              <Button className={classes.button} onClick={this.toggleEdit}> Edit </Button>
+              <Button className={classes.button}> <Link to="/Companys">Back </Link> </Button>
+            </div>
+          </Card>
+        }
+      </div>
+    );
+  }
 
 }
 

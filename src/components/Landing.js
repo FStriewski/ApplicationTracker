@@ -28,4 +28,4 @@ const mapStateToProps = function (state) {
     }
 }
 
-export default connect(mapStateToProps, {  })(Landing)
+export default connect(mapStateToProps, {})(Landing)
