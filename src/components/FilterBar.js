@@ -7,18 +7,25 @@ import Term from './filter/Term'
 import { connect } from 'react-redux'
 import { withStyles } from 'material-ui/styles';
 import * as combine from "lodash/fp/compose"
-import { filterByTerm, undo } from '../actions/filter'
 import { FormControl } from 'material-ui/Form';
-import Input, { InputLabel } from 'material-ui/Input';
+import Table, { TableBody, TableCell, TableHead, TableRow } from 'material-ui/Table';
 
 
 const styles = theme => ({
     container: {
          display: 'flex',
+         width: "100%",
+        fontSize: 14,
     },
     slider: {
         marginLeft: 20,
         width: 200,
+    },
+    header: {
+        borderColor: "#454154",
+        backgroundColor: "white",
+        color: "#454154",
+        fontSize: 15,
     },
 });
 
@@ -28,8 +35,8 @@ const styles = theme => ({
     render(){
         const { classes } = this.props
         return (
-            <div className={classes.container}>
-                <Term />
+             <div className={classes.container}>
+                 {/* <Term />
 
                 <div className={classes.slider}>
                     <Slider />
@@ -39,12 +46,36 @@ const styles = theme => ({
                 </div>
                 <div className={classes.positions}>
                     <Positions />
-                </div>
-            </div>
-        )
-    }
-}
+                </div> */}
 
-export default combine(
-    withStyles(styles),
+
+
+
+                 < Table >
+                     <TableHead >
+                         
+
+                             <TableCell className={classes.header}>#</TableCell>
+                             <TableCell className={classes.header}>Name</TableCell>
+                             <TableCell className={classes.header}>
+                                 Language
+            </TableCell>
+                             <TableCell className={classes.header}>Score</TableCell>
+                             <TableCell className={classes.header}>
+                                 Positions
+            </TableCell>
+                             <TableCell className={classes.header}>Link </TableCell>
+                             <TableCell className={classes.header}>Remove</TableCell>
+
+                         
+                     </TableHead>
+                 </Table >
+
+             </div>
+         )
+     }
+ }
+        
+                export default combine(
+                withStyles(styles),
 )(FilterBar)

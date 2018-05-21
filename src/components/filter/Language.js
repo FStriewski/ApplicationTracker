@@ -27,12 +27,6 @@ class Language extends React.Component {
         language: "All",
     }
 
-    handleChange = name => event => {
-        console.log()
-        this.setState({ language: event.target.checked });
-    };
-
-
     filterLanguage = () => {
         if (this.state.language === "All") {
             this.setState({

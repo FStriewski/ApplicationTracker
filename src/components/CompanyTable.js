@@ -3,14 +3,13 @@ import React, { PureComponent } from 'react'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 import { fetchAllCompanys, removeCompany, createCompany } from '../actions/company'
-import { filterByLanguage, filterByPosition } from '../actions/filter'
 import { Link } from 'react-router-dom'
 import { withStyles } from 'material-ui/styles';
 import Table, { TableBody, TableCell, TableHead, TableRow } from 'material-ui/Table';
 import Paper from 'material-ui/Paper';
 import * as combine from "lodash/fp/compose"
-import Visibility from '@material-ui/icons/Visibility';
-import Button from 'material-ui/Button';
+
+
 
 
 const styles = theme => ({
@@ -60,55 +59,9 @@ class CompanyTable extends PureComponent {
         filterByPosition: PropTypes.func.isRequired,
     }
 
-    state = {
-        language: "All",
-        position: "All",
-        filterLanguageActive: false,
-        filterPositionActive: false,
-    }
-
     componentWillMount() {
         this.props.fetchAllCompanys()
     }
-
-    filterLanguage = () => {
-        if (this.state.language === "All") {
-            this.setState({
-                language: "INT",
-                filterLanguageActive: true,
-            })
-            const int = this.props.companys.filter(c => c.language !== "NL")
-            this.props.filterByLanguage(int)
-            return
-        }
-        if (this.state.language === "INT") {
-            this.setState({
-                language: "All",
-                filterLanguageActive: false,
-            })
-            this.props.fetchAllCompanys()
-        }
-    }
-
-    filterPosition = () => {
-        if (this.state.position === "All") {
-            this.setState({
-                position: "Open",
-                filterPositionActive: true,
-            })
-            const openPositions = this.props.companys.filter(c => c.applied.toLowerCase() !== "n")
-            this.props.filterByPosition(openPositions)
-            return
-        }
-        if (this.state.position === "Open") {
-            this.setState({
-                position: "All",
-                filterPositionActive: false,
-            })
-            this.props.fetchAllCompanys()
-        }
-    }
-
 
     render() {
         const { companys, classes } = this.props
@@ -122,11 +75,11 @@ class CompanyTable extends PureComponent {
                                 <TableCell className={classes.header}>#</TableCell>
                                 <TableCell className={classes.header}>Name</TableCell>
                                 <TableCell className={classes.header}>
-                                    <Button className={classes.button} onClick={this.filterLanguage}>{this.state.filterLanguageActive ? <Visibility /> : ""}Language </Button>
+                                    Language
                                 </TableCell>
                                 <TableCell className={classes.header}>Score</TableCell>
                                 <TableCell className={classes.header}>
-                                    <Button className={classes.button} onClick={this.filterPosition}>{this.state.filterPositionActive ? <Visibility /> : ""}Jobs </Button>
+                                    Jobs
                                 </TableCell>
                                 <TableCell className={classes.header}>Link </TableCell>
                                 <TableCell className={classes.header}>Remove</TableCell>
@@ -169,5 +122,5 @@ const mapStateToProps = function (state) {
 
 export default combine(
     withStyles(styles),
-    connect(mapStateToProps, { fetchAllCompanys, createCompany, removeCompany, filterByLanguage, filterByPosition })
+    connect(mapStateToProps, { fetchAllCompanys, createCompany, removeCompany, })
 )(CompanyTable)
