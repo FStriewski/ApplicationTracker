@@ -36,12 +36,23 @@ const styles = theme => ({
         padding: 0,
         textDecoration: "underline",
     },
-    table: {
+    tableRoot: {
+      height: 250,  
+     
+    },
+    tableHead: {
         // height: "40%",
+        // display: "block",
+        // overflow: "auto",
+   
+        
     },
     tableBody: {
-       
-    },
+        // display: "block",
+        // overflow: "auto",
+        // width: "100%",
+        // height: 250,   
+     },
 });
 
 class CompanyTable extends PureComponent {
@@ -72,10 +83,10 @@ class CompanyTable extends PureComponent {
     render() {
         const { companys, classes } = this.props
         return (
-            <Paper className={classes.papcon}>
-                <div className={classes.table}>
+              <div className={classes.tableRoot}> 
+            <Paper className={classes.table}>
                     <Table >
-                        <TableHead >
+                        <TableHead className={classes.tableHead}>
                             <TableRow >
 
                                 <TableCell className={classes.header}>#</TableCell>
@@ -111,8 +122,8 @@ class CompanyTable extends PureComponent {
                             }
                         </TableBody>
                     </Table>
-                </div>
             </Paper >
+                </div> 
 
         )
     }
