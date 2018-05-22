@@ -41,7 +41,7 @@ function undoable(reducer) {
 
 
 
-const companysreducer = (state = [], action) => {
+export const companysreducer = (state = [], action) => {
 
   const { past, present, future } = state
 
