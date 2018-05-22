@@ -7,11 +7,8 @@ import Select from 'material-ui/Select';
 import { MenuItem } from 'material-ui/Menu';
 
 const styles = theme => ({
-	root: {
-		width: '90%',
-	},
-	form: {
-		backgroundColor: "#f2f2f2",
+	addForm: {
+		backgroundColor: "#efefef",
 	},
 	backButton: {
 		marginRight: theme.spacing.unit,
@@ -84,7 +81,7 @@ class CompanyForm extends React.Component {
 
 		return (
 
-			<form onSubmit={this.handleSubmit} className={classes.form}>
+			<form onSubmit={this.handleSubmit} className={classes.addForm}>
 
 				<FormControl className={classes.formControl}>
 					<InputLabel htmlFor="company-title">Name</InputLabel>

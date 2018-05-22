@@ -36,6 +36,12 @@ const styles = theme => ({
         padding: 0,
         textDecoration: "underline",
     },
+    table: {
+        // height: "40%",
+    },
+    tableBody: {
+       
+    },
 });
 
 class CompanyTable extends PureComponent {
@@ -66,7 +72,7 @@ class CompanyTable extends PureComponent {
     render() {
         const { companys, classes } = this.props
         return (
-            <Paper >
+            <Paper className={classes.papcon}>
                 <div className={classes.table}>
                     <Table >
                         <TableHead >
@@ -86,7 +92,7 @@ class CompanyTable extends PureComponent {
 
                             </TableRow>
                         </TableHead>
-                        <TableBody>
+                            <TableBody className={classes.tableBody}>
                             {companys
                                 .sort((p1, p2) => (p2.score - p1.score))
                                 .map(company => {

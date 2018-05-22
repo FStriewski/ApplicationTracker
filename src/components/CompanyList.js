@@ -23,11 +23,13 @@ const styles = theme => ({
     overflowX: 'auto',
   },
   expansion: {
-    backgroundColor: "#f2f2f2",
+    backgroundColor: "#e0dede",
+    borderColor: "#d8d8d8",
+    borderWidth: "0.5px",
+    borderStyle: "solid",
+    
   },
-  table: {
-    height: 400,
-  },
+
 });
 
 
@@ -60,34 +62,28 @@ class CompanyList extends PureComponent {
   render() {
     const { companys, classes } = this.props
     return (
-      <div id="companyListWrapper">
+      // <div id="companyListWrapper">
         <Paper className={classes.root}>
           <ExpansionPanel className={classes.expansion}>
             <ExpansionPanelSummary expandIcon={<ExpandMoreIcon />}>
               <Typography className={classes.heading}>  Add more...</Typography>
             </ExpansionPanelSummary>
-            {/* <ExpansionPanelDetails> */}
-            <Typography>
               <CompanyForm onSubmit={this.handleSubmit} />
-            </Typography>
-            {/* </ExpansionPanelDetails> */}
           </ExpansionPanel>
 
           <ExpansionPanel className={classes.expansion}>
             <ExpansionPanelSummary expandIcon={<ExpandMoreIcon />}>
               <Typography className={classes.heading}>Filter - [<b>{companys.length}</b> found] </Typography>
             </ExpansionPanelSummary>
-  
-                <FilterBar />
- 
+
+            <FilterBar />
+
           </ExpansionPanel>
 
-          <div className={classes.table}>
-            <CompanyTable />
-          </div>
+          <CompanyTable />
 
         </Paper>
-      </div>
+      // </div>
     )
   }
 }
