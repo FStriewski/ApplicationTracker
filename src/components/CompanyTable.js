@@ -8,6 +8,7 @@ import { withStyles } from 'material-ui/styles';
 import Table, { TableBody, TableCell, TableHead, TableRow } from 'material-ui/Table';
 import Paper from 'material-ui/Paper';
 import * as combine from "lodash/fp/compose"
+import Button from '@material-ui/core/Button';
 
 
 
@@ -36,9 +37,12 @@ const styles = theme => ({
         padding: 0,
         textDecoration: "underline",
     },
-    tableRoot: {
-      height: 250,  
-     
+    btntable: {
+        width: 10,
+    },
+    tableRoot: { 
+        height: 400,
+
     },
     tableHead: {
         // height: "40%",
@@ -51,7 +55,7 @@ const styles = theme => ({
         // display: "block",
         // overflow: "auto",
         // width: "100%",
-        // height: 250,   
+        
      },
 });
 
@@ -115,7 +119,7 @@ class CompanyTable extends PureComponent {
                                             <TableCell className={classes.cell}>{company.score}</TableCell>
                                             <TableCell className={classes.cell}>{company.applied}</TableCell>
                                             <TableCell className={classes.cell}><a href={company.link} target="_blank">Link</a></TableCell>
-                                            <TableCell className={classes.cell}> <button onClick={() => this.props.removeCompany(company.id)}> X </button></TableCell>
+                                            <TableCell className={classes.cell}> <Button variant="outlined" className={classes.btntable} onClick={() => this.props.removeCompany(company.id)}> X </Button></TableCell>
                                         </TableRow>
                                     );
                                 })

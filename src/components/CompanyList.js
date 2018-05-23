@@ -18,8 +18,9 @@ import CompanyTable from './CompanyTable'
 
 const styles = theme => ({
   root: {
-    width: '100%',
-    marginTop: theme.spacing.unit * 4,
+    width: '98%',
+    marginLeft: "1%",
+    marginTop: theme.spacing.unit * 2,
     overflowX: 'auto',
   },
   expansion: {
@@ -29,7 +30,9 @@ const styles = theme => ({
     borderStyle: "solid",
     
   },
-
+table: {
+  height: 350,
+}
 });
 
 
@@ -80,7 +83,7 @@ class CompanyList extends PureComponent {
 
           </ExpansionPanel>
 
-          <CompanyTable />
+          <CompanyTable className={classes.table}/>
 
         </Paper>
       // </div>
